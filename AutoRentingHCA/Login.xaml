@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AutoRentingHCA.Login">
+    <ContentPage.Content>
+        <Grid RowDefinitions="*,Auto" BackgroundColor="#2e2125">
+
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#30252B" Offset="0" />
+                    <GradientStop Color="#222930" Offset="1" />
+                </LinearGradientBrush>
+            </Grid.Background>
+
+            <Image Grid.RowSpan="2" VerticalOptions="Start" Aspect="AspectFill" Source="mainImage.jpg" HeightRequest="500"/>
+            <Label Grid.Row="0" Text="Hola!" FontSize="44" TextColor="#D7D7D7" VerticalOptions="End"  HorizontalOptions="End" FontAttributes="Bold" Padding="20,30,20,20"/>
+
+            <Frame Grid.Row="1" HasShadow="False" Margin="15,0,15,50" VerticalOptions="FillAndExpand" CornerRadius="20" Opacity="0.8" BackgroundColor="#2D343B" BorderColor="#353B41">
+                <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" RowSpacing="25" Padding="0,10,0,0">
+                    <Entry Placeholder="Usuario" x:Name="txtUser" Grid.Row="0" HeightRequest="50" TextColor="White" PlaceholderColor="White"/>
+                    <Entry Placeholder="Contraseña" x:Name="txtPass" IsPassword="True" Grid.Row="1" HeightRequest="50" TextColor="White" PlaceholderColor="White"/>
+                    <Button x:Name="btnIniciarSesion" Text="Iniciar sesión" CornerRadius="20"  Grid.Row="2" Clicked="btnIniciarSesion_Clicked" BackgroundColor="#1C6CE8" TextColor="White" FontAttributes="Bold"/>
+
+                    <Grid Grid.Row="3">
+                        <Button x:Name="btnCrear" Text="Crear cuenta" HorizontalOptions="Start" Background="transparent" FontSize="13" Clicked="btnCrear_Clicked" Margin="5,-20,0,0" TextColor="White"/>
+                        <Button x:Name="btnRecuperar" Text="Recuperar contraseña" HorizontalOptions="End" Background="transparent" FontSize="13" Clicked="btnRecuperar_Clicked" Margin="0,-20,5,0" TextColor="White"/>
+                    </Grid>
+
+                    <Grid Grid.Row="4" HorizontalOptions="Center" Margin="0,-5,0,-50">
+                        <Label Text="Iniciar sesión con:" HorizontalOptions="Center" TextColor="White"/>
+                        <StackLayout Orientation="Horizontal" Grid.Row="1" Margin="0,-10,0,0">
+                            <ImageButton Source="facebook.png" WidthRequest="50" BackgroundColor="Transparent" Clicked="ImageButton_Clicked" Margin="0,0,10,0"/>
+                            <ImageButton Source="google.png" WidthRequest="50" BackgroundColor="Transparent" Clicked="ImageButton_Clicked_1"/>
+                        </StackLayout>
+                    </Grid>
+                </Grid>
+            </Frame>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

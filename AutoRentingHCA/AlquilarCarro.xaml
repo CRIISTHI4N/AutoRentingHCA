@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AutoRentingHCA.AlquilarCarro">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White">
+
+            <StackLayout.Background RowDefinitions="Auto">
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#568EBD" Offset="0" />
+                    <GradientStop Color="#3871A0" Offset="1" />
+                </LinearGradientBrush>
+            </StackLayout.Background>
+
+            <Label x:Name="lblCedulaUser" Text="" IsVisible="False"/>
+            <Button x:Name="btnAlquilar" Text="Alquilar" Margin="10" FontAttributes="Bold" BackgroundColor="#FF826B" CornerRadius="15" Clicked="btnAlquilar_Clicked" BorderColor="#FF9A88" BorderWidth="1"/>
+
+            <ListView x:Name="lstAutos" 
+                      SelectionMode="Single" 
+                      ItemSelected="lstAutos_ItemSelected"
+                      HasUnevenRows="True">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell Grid.Column="4" Grid.Row="4">
+                            <Grid Padding="0" Margin="0">
+                                <Frame Padding="0" Margin="5" CornerRadius="10" BackgroundColor="White">
+
+                                    <Grid RowDefinitions="Auto">
+                                        <Image Source="{Binding foto}" Grid.Row="0" Grid.Column="0" Aspect="AspectFill" HeightRequest="200"/>
+                                        <StackLayout Grid.Row="1" Grid.Column="0" Padding="10" Margin="5,0,5,0">
+                                            <Grid VerticalOptions="CenterAndExpand">
+                                                <Label Grid.Row="0" Grid.Column="0" Text="Nombre:" TextColor="#393939" FontSize="13"/>
+                                                <Label Margin="0,-5,0,0" Grid.ColumnSpan="3" Grid.Row="1" Grid.Column="0" Text="{Binding MODELOAUTO}" FontAttributes="Bold" FontSize="18" TextColor="Black"/>
+                                                <Label Grid.Row="0" Grid.Column="3" Text="Precio:" TextColor="#393939" FontSize="13"/>
+                                                <Label Margin="0,-5,0,0" Grid.Row="1" Grid.Column="3" Text="{Binding PRECIOAUTO, StringFormat='$ {0}'}" FontAttributes="Bold" FontSize="18" TextColor="Black"/>
+                                                <Label Grid.Row="0" Grid.Column="4" Text="Color:" TextColor="#393939" FontSize="13"/>
+                                                <Label Margin="0,-5,0,0" Grid.Row="1" Grid.Column="4" Text="{Binding COLORAUTO}" FontAttributes="Bold" FontSize="18" TextColor="Black"/>
+                                                
+                                                <Label Grid.Row="0" Grid.Column="3" x:Name="lblIdAuto" Text="{Binding IDAUTOS}" FontAttributes="Bold" FontSize="18" IsVisible="False" TextColor="Black"/>
+                                            </Grid>
+                                            <Frame CornerRadius="10" BackgroundColor="#FF8D78" Padding="0" Margin="0,10,0,5" BorderColor="#FF9A88">
+                                                <Label Text="SELECCIONAR" FontAttributes="None" FontSize="15" TextColor="Black" Padding="10" HorizontalOptions="Center"/>
+                                            </Frame>
+                                        </StackLayout>
+                                    </Grid>
+                                </Frame>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

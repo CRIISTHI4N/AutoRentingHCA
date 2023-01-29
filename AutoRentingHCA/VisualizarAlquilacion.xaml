@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AutoRentingHCA.VisualizarAlquilacion">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <StackLayout.Background RowDefinitions="Auto">
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#306a9a" Offset="0" />
+                    <GradientStop Color="#2A1B6A" Offset="1" />
+                </LinearGradientBrush>
+            </StackLayout.Background>
+
+
+            <Image x:Name="imgAuto" Source="" />
+
+            <ScrollView Margin="0,-15,0,0" VerticalOptions="FillAndExpand">
+                <Frame CornerRadius="10">
+                    <Grid>
+                        <StackLayout Grid.Column="0" Grid.Row="0">
+                            <Label Text="Marca:" Grid.Row="0" Grid.Column="0" TextColor="#393939" FontSize="13"/>
+                            <Label x:Name="lblNombreAuto" Text="" Grid.Row="1" Grid.Column="0" TextColor="#393939" FontSize="18" FontAttributes="Bold"/>
+                            <Label Text="Tipo:" Grid.Row="0" Grid.Column="0" TextColor="#393939" FontSize="13"/>
+                            <Label x:Name="lblTipo" Text="" Grid.Row="0" Grid.Column="0" TextColor="#393939" FontSize="18" FontAttributes="Bold"/>
+                            <Label Text="Modelo:" Grid.Row="0" Grid.Column="0" TextColor="#393939" FontSize="13"/>
+                            <Label x:Name="lblModelo" Text="" Grid.Row="0" Grid.Column="0" TextColor="#393939" FontSize="18" FontAttributes="Bold"/>
+
+                            <Label x:Name="lblID" Text="" Grid.Row="0" Grid.Column="0" IsVisible="False"/>
+                            <Label x:Name="lblIdMarca" Text="" Grid.Row="0" Grid.Column="0" IsVisible="False"/>
+                        </StackLayout>
+
+                        <StackLayout Grid.Column="1" Grid.Row="0">
+                            <Label Text="Placa:" Grid.Row="0" Grid.Column="0" TextColor="#393939" FontSize="13"/>
+                            <Label x:Name="lblPlaca" Text="" Grid.Row="0" Grid.Column="0" TextColor="#393939" FontSize="18" FontAttributes="Bold"/>
+                            <Label Text="Precio:" Grid.Row="0" Grid.Column="0" TextColor="#393939" FontSize="13"/>
+                            <Label Text="$ " Grid.Row="0" Grid.Column="0" TextColor="Black" FontAttributes="Bold" Margin="0,0,0,0" FontSize="18"/>
+                            <Label x:Name="lblPrecio" Margin="17,-30,0,0" Text="" Grid.Row="0" Grid.Column="0" TextColor="#393939" FontSize="18" FontAttributes="Bold"/>
+                            <Label Text="Color:" Grid.Row="0" Grid.Column="0" TextColor="#393939" FontSize="13"/>
+                            <Label x:Name="lblColor" Text="" Grid.Row="0" Grid.Column="0" TextColor="#393939" FontSize="18" FontAttributes="Bold"/>
+
+                            <Label x:Name="lblEstado" Text="" Grid.Row="0" Grid.Column="0" IsVisible="False"/>
+                            <Label x:Name="lblFecha" Text="" Grid.Row="0" Grid.Column="0" IsVisible="False"/>
+                        </StackLayout>
+
+                        <StackLayout Grid.ColumnSpan="2" Grid.Row="1" Margin="0,-65,0,0" HorizontalOptions="FillAndExpand">
+                            <Label Text="Formulario" HorizontalOptions="Center" TextColor="Black" FontSize="25" FontAttributes="Bold"/>
+                            
+                            <Entry x:Name="cedu" Placeholder="Cedula" IsVisible="False"/>
+                            <Entry x:Name="entrIdRenta" IsVisible="False"/>
+                            <Entry x:Name="lblEstadoAuto" Text="0" IsVisible="False"/>
+
+                            <Label x:Name="lblPagar" Text="Total a pagar: $" BackgroundColor="#FF846E" TextColor="Black" IsVisible="False" FontSize="18" Padding="10"/>
+                            <Label x:Name="lblTotalPagar" Text="" BackgroundColor="#FF846E" Padding="0,10,10,10" TextColor="Black" IsVisible="False" Margin="135,-50.6,0,0" FontSize="18"/>
+                            <Label Text="Días:" TextColor="#393939" FontSize="13" Margin="5,0,0,-13"/>
+                            <Entry x:Name="etDias" Keyboard="Telephone"/>
+                            <Label Text="Fecha:" TextColor="#393939" FontSize="13" Margin="5,0,0,-13"/>
+                            <Entry x:Name="etFecha" Placeholder="YYYY/MM/DD"/>
+                            <Label Text="Dirección:" TextColor="#393939" FontSize="13" Margin="5,0,0,-13"/>
+                            <Entry x:Name="etDireccion"/>
+                            <Label Text="Teléfono:" TextColor="#393939" FontSize="13" Margin="5,0,0,-13"/>
+                            <Entry x:Name="etTelf"/>
+                            <Button x:Name="btnAlquilarAuto" Text="Alquilar" Clicked="btnAlquilarAuto_Clicked" BackgroundColor="#FF846E" FontAttributes="Bold" CornerRadius="10"/>
+
+                            <!--<Button x:Name="asd" Text="Actualizar" Clicked="asd_Clicked"/>-->
+                        </StackLayout>
+                    </Grid>
+
+
+                </Frame>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

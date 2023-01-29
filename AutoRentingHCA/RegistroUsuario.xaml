@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AutoRentingHCA.RegistroUsuario">
+    <ContentPage.Content>
+
+        <StackLayout>
+
+            <StackLayout.Background RowDefinitions="Auto">
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#306a9a" Offset="0" />
+                    <GradientStop Color="#2A1B6A" Offset="1" />
+                </LinearGradientBrush>
+            </StackLayout.Background>
+
+            <Button Text="X" x:Name="btnCerrar" BackgroundColor="Transparent" WidthRequest="50" HorizontalOptions="End" FontSize="25" TextColor="White" Padding="0" Clicked="btnCerrar_Clicked"/>
+
+            <Label Text="Registro" FontSize="50" HorizontalOptions="Center" Padding="0,10,0,10" TextColor="#E1E1E1" FontAttributes="Bold"/>
+
+            <Frame BackgroundColor="#3E5E78" Opacity="0.9" CornerRadius="20" Margin="15" BorderColor="#2E73AC">
+
+                <Frame.Background RowDefinitions="Auto">
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#306a9a" Offset="0" />
+                        <GradientStop Color="#2E6FA5" Offset="1" />
+                    </LinearGradientBrush>
+                </Frame.Background>
+
+                <StackLayout>
+                    <Entry x:Name="txtCedula" Placeholder="Cédula" PlaceholderColor="White" TextColor="White" Margin="30,10,30,10"/>
+
+                    <Entry x:Name="txtNombre" Placeholder="Nombre" PlaceholderColor="White" TextColor="White" Margin="30,0,30,10"/>
+
+                    <Entry x:Name="txtApellido" Placeholder="Apelldio" PlaceholderColor="White" TextColor="White" Margin="30,0,30,10"/>
+
+                    <Entry x:Name="txtEmail" Placeholder="Email" PlaceholderColor="White" TextColor="White" Margin="30,0,30,10"/>
+
+                    <Entry x:Name="txtTelf" Placeholder="Teléfono" PlaceholderColor="White" TextColor="White" Margin="30,0,30,10"/>
+
+                    <Entry x:Name="txtUsuario" Placeholder="Usuario" PlaceholderColor="White" TextColor="White" Margin="30,0,30,10"/>
+
+                    <Entry x:Name="txtContra" Placeholder="Contraseña" PlaceholderColor="White" TextColor="White" Margin="30,0,30,10"/>
+
+                    <Entry x:Name="txtLicencia" Placeholder="Licencia" PlaceholderColor="White" TextColor="White" Margin="30,0,30,10"/>
+                    
+                    <Entry x:Name="txtPerfil" TextColor="White" Margin="30,0,30,10" IsVisible="false" Text="1"/>
+
+                    <Button 
+                        x:Name="btnCrear" 
+                        Text="Crear cuenta" 
+                        HorizontalOptions="FillAndExpand" 
+                        Clicked="btnCrear_Clicked" 
+                        Margin="50,20,50,20" 
+                        BackgroundColor="Transparent" 
+                        BorderColor="White" 
+                        BorderWidth="1" 
+                        CornerRadius="50" 
+                        TextColor="White" 
+                        Padding="20,0,20,0"
+                        VerticalOptions="EndAndExpand"/>
+                </StackLayout>
+            </Frame>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

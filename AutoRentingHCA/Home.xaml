@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AutoRentingHCA.Home">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <StackLayout.Background RowDefinitions="Auto">
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#568EBD" Offset="0" />
+                    <GradientStop Color="#3871A0" Offset="1" />
+                </LinearGradientBrush>
+            </StackLayout.Background>
+
+            <Label Text="La mejor experiencia!"
+                   FontSize="42"
+                   HorizontalOptions="Center"
+                   TextColor="#F2F2F2"/>
+
+            <CarouselView x:Name="Carousel" IndicatorView="IndicatorView" HeightRequest="300" WidthRequest="100">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding Url}" Aspect="AspectFill"/>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+            <IndicatorView x:Name="IndicatorView"
+                           IndicatorColor="Gray"
+                           SelectedIndicatorColor="#DADADA"
+                           IndicatorSize="10"
+                           VerticalOptions="Center"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
