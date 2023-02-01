@@ -39,6 +39,12 @@ namespace AutoRentingHCA
                 this.Master = new MenuHamburguesa(usuario, 4, tipoUsuario, cedula);
                 this.Detail = new NavigationPage(new AdministrarAutos());
                 App.menu = this;
+            } else if (numeroMenu == 5) //servicios (choferes)
+            {
+                NavigationPage.SetHasNavigationBar(this, false);
+                this.Master = new MenuHamburguesa(usuario, 5, tipoUsuario, cedula);
+                this.Detail = new NavigationPage(new Servicios(usuario, 5, tipoUsuario, cedula));
+                App.menu = this;
             }
         }
     }

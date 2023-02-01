@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AutoRentingHCA.Servicios">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="30" Spacing="30">
+
+                <StackLayout.Background RowDefinitions="Auto">
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#568EBD" Offset="0" />
+                        <GradientStop Color="#3871A0" Offset="1" />
+                    </LinearGradientBrush>
+                </StackLayout.Background>
+
+                <Frame CornerRadius="45" HasShadow="True" VerticalOptions="Start">
+                    <StackLayout HorizontalOptions="Center">
+                        <Image Source="icon1.png" />
+                        <Label Text="Alexis Analuisa" TextColor="Black" FontAttributes="Bold" />
+                        <Label Text="alexis_analuisa1998@gmail.com" TextColor="Black" FontAttributes="Bold"/>
+                        <Label Text="0992802173" TextColor="Black" FontAttributes="Bold"/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame CornerRadius="45" HasShadow="True" VerticalOptions="CenterAndExpand">
+                    <StackLayout HorizontalOptions="Center">
+                        <Image Source="icon2.png" />
+                        <Label Text="Hugo Condor" TextColor="Black" FontAttributes="Bold"/>
+                        <Label Text="hugocond22@gmail.com" TextColor="Black" FontAttributes="Bold"/>
+                        <Label Text="0992529023" TextColor="Black" FontAttributes="Bold"/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame CornerRadius="45" HasShadow="True">
+                    <StackLayout HorizontalOptions="Center">
+                        <Image Source="icon3.png" />
+                        <Label Text="Cristhian Velez" TextColor="Black" FontAttributes="Bold" />
+                        <Label Text="gamers1235velez@gmail.com" TextColor="Black" FontAttributes="Bold"/>
+                        <Label Text="0994138579" TextColor="Black" FontAttributes="Bold"/>
+                    </StackLayout>
+                </Frame>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

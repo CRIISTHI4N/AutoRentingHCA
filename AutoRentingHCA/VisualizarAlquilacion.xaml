@@ -54,12 +54,16 @@
                             <Label x:Name="lblTotalPagar" Text="" BackgroundColor="#FF846E" Padding="0,10,10,10" TextColor="Black" IsVisible="False" Margin="135,-50.6,0,0" FontSize="18"/>
                             <Label Text="Días:" TextColor="#393939" FontSize="13" Margin="5,0,0,-13"/>
                             <Entry x:Name="etDias" Keyboard="Telephone"/>
-                            <Label Text="Fecha:" TextColor="#393939" FontSize="13" Margin="5,0,0,-13"/>
-                            <Entry x:Name="etFecha" Placeholder="YYYY/MM/DD"/>
+                            <Label Text="Fecha de entrega:" TextColor="#393939" FontSize="13" Margin="5,0,0,-13"/>
+                            <DatePicker x:Name="etFecha" Format="yyyy/MM/dd"/>
                             <Label Text="Dirección:" TextColor="#393939" FontSize="13" Margin="5,0,0,-13"/>
                             <Entry x:Name="etDireccion"/>
-                            <Label Text="Teléfono:" TextColor="#393939" FontSize="13" Margin="5,0,0,-13"/>
-                            <Entry x:Name="etTelf"/>
+                            <Label Text="Teléfono:" TextColor="#393939" FontSize="13" Margin="5,0,0,-13" />
+                            <Entry x:Name="etTelf" Keyboard="Telephone"/>
+
+
+
+
                             <Button x:Name="btnAlquilarAuto" Text="Alquilar" Clicked="btnAlquilarAuto_Clicked" BackgroundColor="#FF846E" FontAttributes="Bold" CornerRadius="10"/>
 
                             <!--<Button x:Name="asd" Text="Actualizar" Clicked="asd_Clicked"/>-->

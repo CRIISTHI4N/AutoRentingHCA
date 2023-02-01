@@ -21,8 +21,8 @@ namespace AutoRentingHCA
             NavigationPage.SetHasNavigationBar(this, false);
         }
 
-        private const string Url = "http://192.168.1.11/proyecto/usuario.php?USUARIOCLIENTE={0}&CLAVECLIENTE_={1}";
-
+        // 192.168.1.11
+        private const string Url = "http://192.168.70.180/proyecto/usuario.php?USUARIOCLIENTE={0}&CLAVECLIENTE_={1}";
         private readonly HttpClient client = new HttpClient();       
 
         private async void btnIniciarSesion_Clicked(object sender, EventArgs e)
@@ -65,7 +65,6 @@ namespace AutoRentingHCA
             {
                 await DisplayAlert("Alerta", "Debe ingresar su Usuario", "Cerrar");
             }
-
         }
 
         private async void btnCrear_Clicked(object sender, EventArgs e)

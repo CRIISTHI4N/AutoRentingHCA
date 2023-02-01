@@ -71,5 +71,13 @@ namespace AutoRentingHCA
             string cedula = lblCedula.Text;
             await Navigation.PushAsync(new MainPage(usuario, 4, tipoUser, cedula));
         }
+
+        private async void btnContratarChofer_Clicked(object sender, EventArgs e)
+        {
+            string usuario = lblUser.Text;
+            int tipoUser = Convert.ToInt32(lblTipoUser.Text);
+            string cedula = lblCedula.Text;
+            await Navigation.PushAsync(new MainPage(usuario, 5, tipoUser, cedula));
+        }
     }
 }

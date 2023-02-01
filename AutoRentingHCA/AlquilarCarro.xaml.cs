@@ -15,8 +15,8 @@ namespace AutoRentingHCA
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AlquilarCarro : ContentPage
     {
-
-        private const string Url = "http://192.168.1.11/proyecto/autos.php";
+        // 192.168.1.11
+        private const string Url = "http://192.168.70.180/proyecto/autos.php";
 
         private readonly HttpClient client = new HttpClient();
         private ObservableCollection<Autos> _post;
@@ -25,8 +25,6 @@ namespace AutoRentingHCA
         public string NOMBREAUTO, TIPOAUTO, MODELOAUTO, PLACAAUTO, COLORAUTO, foto;
         public double PRECIOAUTO;
         public DateTime FECHAREGISTROAUTO;
-
-
 
         private void lstAutos_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
@@ -48,15 +46,9 @@ namespace AutoRentingHCA
         {
             if (IDAUTOS > 0)
             {
-
-                if (ESTADOAUTO == 1)
-                {
-                    await Navigation.PushAsync(new VisualizarAlquilacion(IDAUTOS, IDMARCAS, NOMBREAUTO, TIPOAUTO, MODELOAUTO, PLACAAUTO, PRECIOAUTO, COLORAUTO, foto, ESTADOAUTO, lblCedulaUser.Text));
-                } else
-                {
-                    await DisplayAlert("Alerta", "Lo sentimos, en estos momentos este vehículo no esta disponible", "Cerrar");
-                }
-            } else
+                await Navigation.PushAsync(new VisualizarAlquilacion(IDAUTOS, IDMARCAS, NOMBREAUTO, TIPOAUTO, MODELOAUTO, PLACAAUTO, PRECIOAUTO, COLORAUTO, foto, ESTADOAUTO, lblCedulaUser.Text));
+            }
+            else
             {
                 await DisplayAlert("Alerta", "Selecciona un Vehículo", "Cerrar");
             }

@@ -25,18 +25,18 @@
                     <DataTemplate>
                         <ViewCell Grid.Column="4" Grid.Row="4">
                             <Grid Padding="0" Margin="0">
-                                <Frame Padding="0" Margin="5" CornerRadius="10" BackgroundColor="White">
+                                <Frame Padding="0" Margin="5" CornerRadius="10" BackgroundColor="#343434">
 
                                     <Grid RowDefinitions="Auto">
                                         <Image Source="{Binding foto}" Grid.Row="0" Grid.Column="0" Aspect="AspectFill" HeightRequest="200"/>
                                         <StackLayout Grid.Row="1" Grid.Column="0" Padding="10" Margin="5,0,5,0">
                                             <Grid VerticalOptions="CenterAndExpand">
-                                                <Label Grid.Row="0" Grid.Column="0" Text="Nombre:" TextColor="#393939" FontSize="13"/>
-                                                <Label Margin="0,-5,0,0" Grid.ColumnSpan="3" Grid.Row="1" Grid.Column="0" Text="{Binding MODELOAUTO}" FontAttributes="Bold" FontSize="18" TextColor="Black"/>
-                                                <Label Grid.Row="0" Grid.Column="3" Text="Precio:" TextColor="#393939" FontSize="13"/>
-                                                <Label Margin="0,-5,0,0" Grid.Row="1" Grid.Column="3" Text="{Binding PRECIOAUTO, StringFormat='$ {0}'}" FontAttributes="Bold" FontSize="18" TextColor="Black"/>
-                                                <Label Grid.Row="0" Grid.Column="4" Text="Color:" TextColor="#393939" FontSize="13"/>
-                                                <Label Margin="0,-5,0,0" Grid.Row="1" Grid.Column="4" Text="{Binding COLORAUTO}" FontAttributes="Bold" FontSize="18" TextColor="Black"/>
+                                                <Label Grid.Row="0" Grid.Column="0" Text="Nombre:" TextColor="White" FontSize="13"/>
+                                                <Label Margin="0,-5,0,0" Grid.ColumnSpan="3" Grid.Row="1" Grid.Column="0" Text="{Binding MODELOAUTO}" FontAttributes="Bold" FontSize="18" TextColor="White"/>
+                                                <Label Grid.Row="0" Grid.Column="3" Text="Precio:" TextColor="White" FontSize="13"/>
+                                                <Label Margin="0,-5,0,0" Grid.Row="1" Grid.Column="3" Text="{Binding PRECIOAUTO, StringFormat='$ {0}'}" FontAttributes="Bold" FontSize="18" TextColor="White"/>
+                                                <Label Grid.Row="0" Grid.Column="4" Text="Color:" TextColor="White" FontSize="13"/>
+                                                <Label Margin="0,-5,0,0" Grid.Row="1" Grid.Column="4" Text="{Binding COLORAUTO}" FontAttributes="Bold" FontSize="18" TextColor="White"/>
                                                 
                                                 <Label Grid.Row="0" Grid.Column="3" x:Name="lblIdAuto" Text="{Binding IDAUTOS}" FontAttributes="Bold" FontSize="18" IsVisible="False" TextColor="Black"/>
                                             </Grid>

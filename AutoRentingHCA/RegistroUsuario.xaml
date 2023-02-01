@@ -27,16 +27,16 @@
                 </Frame.Background>
 
                 <StackLayout>
-                    <Entry x:Name="txtCedula" Placeholder="Cédula" PlaceholderColor="White" TextColor="White" Margin="30,10,30,10"/>
+                    <Entry x:Name="txtCedula" Placeholder="Cédula" PlaceholderColor="White" TextColor="White" Margin="30,10,30,10" Keyboard="Telephone"/>
 
                     <Entry x:Name="txtNombre" Placeholder="Nombre" PlaceholderColor="White" TextColor="White" Margin="30,0,30,10"/>
 
-                    <Entry x:Name="txtApellido" Placeholder="Apelldio" PlaceholderColor="White" TextColor="White" Margin="30,0,30,10"/>
+                    <Entry x:Name="txtApellido" Placeholder="Apellido" PlaceholderColor="White" TextColor="White" Margin="30,0,30,10"/>
 
-                    <Entry x:Name="txtEmail" Placeholder="Email" PlaceholderColor="White" TextColor="White" Margin="30,0,30,10"/>
+                    <Entry x:Name="txtEmail" Placeholder="Email" PlaceholderColor="White" TextColor="White" Margin="30,0,30,10" Keyboard="Email"/>
 
-                    <Entry x:Name="txtTelf" Placeholder="Teléfono" PlaceholderColor="White" TextColor="White" Margin="30,0,30,10"/>
-
+                    <Entry x:Name="txtTelf" Placeholder="Teléfono" PlaceholderColor="White" TextColor="White" Margin="30,0,30,10" Keyboard="Telephone"/>
+ 
                     <Entry x:Name="txtUsuario" Placeholder="Usuario" PlaceholderColor="White" TextColor="White" Margin="30,0,30,10"/>
 
                     <Entry x:Name="txtContra" Placeholder="Contraseña" PlaceholderColor="White" TextColor="White" Margin="30,0,30,10"/>

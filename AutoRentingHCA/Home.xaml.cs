@@ -19,7 +19,6 @@ namespace AutoRentingHCA
         public Home()
         {
             InitializeComponent();
-            //NavigationPage.SetHasNavigationBar(this, false);
 
             List<Image> images = new List<Image>()
             {

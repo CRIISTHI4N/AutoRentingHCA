@@ -17,11 +17,9 @@ namespace AutoRentingHCA
     public partial class VisualizarAlquilacion : ContentPage
     {
 
-        private const string Url = "http://192.168.1.11/proyecto/renta.php";
-        private const string UrlUp = "http://192.168.1.11/proyecto/renta.php?IDAUTOS={0}&ESTADOAUTO={1}";
-
-        //private readonly HttpClient client = new HttpClient();
-        //private ObservableCollection<Autos> _post;
+        //192.168.1.11
+        private const string Url = "http://192.168.70.180/proyecto/renta.php";
+        private const string UrlUp = "http://192.168.70.180/proyecto/renta.php?IDAUTOS={0}&ESTADOAUTO={1}";
 
         public VisualizarAlquilacion(int IDAUTOS, int IDMARCAS, string NOMBREAUTO, string TIPOAUTO, string MODELOAUTO, string PLACAAUTO, double PRECIOAUTO, string COLORAUTO, string foto, int ESTADOAUTO, string cedula)
         {
@@ -42,62 +40,83 @@ namespace AutoRentingHCA
             lblEstado.Text = ESTADOAUTO.ToString();
 
             cedu.Text = cedula;
+
+            etFecha.Format = "yyyy/MM/dd";
         }
 
         private async void btnAlquilarAuto_Clicked(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(etDias.Text))
             {
-                if (!String.IsNullOrEmpty(etFecha.Text))
-                {
                     if (!String.IsNullOrEmpty(etDireccion.Text))
                     {
                         if (!String.IsNullOrEmpty(etTelf.Text))
                         {
-                            int dias = Convert.ToInt32(etDias.Text);
-                            double precio = Convert.ToDouble(lblPrecio.Text);
-                            double totalPagar = dias * precio;
+                            var action = await DisplayActionSheet("¿Estas seguro de tus datos?", null, "Sí", "No");
 
-                            lblTotalPagar.Text = totalPagar.ToString(); // agregar el signo de dolar
-                            lblTotalPagar.IsVisible = true;
-                            lblPagar.IsVisible = true;
-                            btnAlquilarAuto.IsVisible = false;
-                            etDias.IsReadOnly = true;
-                            etFecha.IsReadOnly = true;
-                            etDireccion.IsReadOnly = true;
-                            etTelf.IsReadOnly = true;
-
-                            WebClient client = new WebClient();
-                            try
+                            if (action == "Sí")
                             {
-                                var parameters = new System.Collections.Specialized.NameValueCollection();
-                                parameters.Add("IDRENTA", entrIdRenta.Text);
-                                parameters.Add("IDAUTOS", lblID.Text);
-                                parameters.Add("CEDULA", cedu.Text);
-                                parameters.Add("telefono", etTelf.Text);
-                                parameters.Add("FECHAREGISTRORENTA", etFecha.Text);
-                                parameters.Add("FECHARESERVARENTA", etFecha.Text); // fecha del sistema
-                                parameters.Add("DIASRENTA", etDias.Text);
-                                parameters.Add("DIRECCIONRENTA", etDireccion.Text);
-                                parameters.Add("TOTALRENTA", lblTotalPagar.Text);
 
-                                client.UploadValues(Url, "POST", parameters);
+                                int dias = Convert.ToInt32(etDias.Text);
+                                double precio = Convert.ToDouble(lblPrecio.Text);
+                                double totalPagar = dias * precio;
 
-                                using (var webClient = new WebClient())
+                                lblTotalPagar.Text = totalPagar.ToString(); // agregar el signo de dolar
+                                //lblTotalPagar.IsVisible = true;
+                                //lblPagar.IsVisible = true;
+                                btnAlquilarAuto.IsVisible = false;
+                                etDias.IsReadOnly = true;
+                                etDireccion.IsReadOnly = true;
+                                etTelf.IsReadOnly = true;
+
+                                WebClient client = new WebClient();
+                                try
                                 {
-                                    var uri = new Uri(string.Format(UrlUp, lblID.Text, lblEstadoAuto.Text));
-                                    webClient.UploadString(uri, "PUT", string.Empty);
+                                    var parameters = new System.Collections.Specialized.NameValueCollection();
+                                    parameters.Add("IDRENTA", entrIdRenta.Text);
+                                    parameters.Add("IDAUTOS", lblID.Text);
+                                    parameters.Add("CEDULA", cedu.Text);
+                                    parameters.Add("telefono", etTelf.Text);
+                                    parameters.Add("FECHAREGISTRORENTA", etFecha.Date.ToShortDateString());
+                                    parameters.Add("FECHARESERVARENTA", etFecha.Date.ToShortDateString()); // fecha del sistema
+                                    parameters.Add("DIASRENTA", etDias.Text);
+                                    parameters.Add("DIRECCIONRENTA", etDireccion.Text);
+                                    parameters.Add("TOTALRENTA", lblTotalPagar.Text);
+
+                                    client.UploadValues(Url, "POST", parameters);
+
+                                    using (var webClient = new WebClient())
+                                    {
+                                        var uri = new Uri(string.Format(UrlUp, lblID.Text, lblEstadoAuto.Text));
+                                        webClient.UploadString(uri, "PUT", string.Empty);
+                                    }
+
+                                    await DisplayAlert("Alquiler con éxito",
+                                        "Por favor, Espere a que uno de nuestros ascesores se comunique con usted. \n"
+                                        + "\n"
+                                        + "Días: " + etDias.Text + "\n"
+                                        + "Fecha de entrega: " + etFecha.Date.ToShortDateString() + "\n"
+                                        + "Dirección: " + etDireccion.Text + "\n"
+                                        + "Teléfono: " + etTelf.Text + "\n"
+                                        + "\n"
+                                        + "Total a pagar: $" + lblTotalPagar.Text,
+                                        "Gracias");
+                                    await Navigation.PushAsync(new AlquilarCarro(cedu.Text));
+
                                 }
-
-                                await DisplayAlert("Alquiler con éxito", "Por favor espera a que uno de nuestros ascesores se comunique con usted", "Gracias");
-
+                                catch (Exception ex)
+                                {
+                                    Console.WriteLine(ex);
+                                    await DisplayAlert("Error", "Se produjo un error comuniquese con" +
+                                        " el Administrador", "Cerrar");
+                                }
                             }
-                            catch (Exception ex)
+                            else if (action == "No")
                             {
-                                Console.WriteLine(ex);
-                                await DisplayAlert("Error", "Se produjo un error comuniquese con" +
-                                    " el Administrador", "Cerrar");
+                                return;
                             }
+
+
                         }
                         else
                         {
@@ -108,34 +127,11 @@ namespace AutoRentingHCA
                     {
                         await DisplayAlert("Alerta", "Debe ingresar la dirección de entrega", "Cerrar");
                     }
-                }
-                else
-                {
-                    await DisplayAlert("Alerta", "Debe ingresar la fecha de entrega", "Cerrar");
-                }
             }
             else
             {
                 await DisplayAlert("Alerta", "Debe ingresar los días de alquiler", "Cerrar");
             }
         }
-
-        //private void asd_Clicked(object sender, EventArgs e)
-        //{
-        //    WebClient client = new WebClient();
-        //    try
-        //    {
-        //        using (var webClient = new WebClient())
-        //        {
-        //            var uri = new Uri(string.Format(UrlUp, lblID.Text, lblEstadoAuto.Text));
-        //            webClient.UploadString(uri, "PUT", string.Empty);
-        //        }
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        DisplayAlert("Alerta", ex.Message, "Cerrar");
-        //    }
-        //}
     }
 }
