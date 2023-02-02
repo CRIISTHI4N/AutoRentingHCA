@@ -4,27 +4,18 @@
              x:Class="AutoRentingHCA.RegistroUsuario">
     <ContentPage.Content>
 
-        <StackLayout>
+        <Grid RowDefinitions="*,Auto" BackgroundColor="#2e2125">
 
-            <StackLayout.Background RowDefinitions="Auto">
-                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#306a9a" Offset="0" />
-                    <GradientStop Color="#2A1B6A" Offset="1" />
-                </LinearGradientBrush>
-            </StackLayout.Background>
+            <Image Grid.RowSpan="2" VerticalOptions="Start" Aspect="AspectFill" Source="imagencarro2.jpg" HeightRequest="500"/>
+
 
             <Button Text="X" x:Name="btnCerrar" BackgroundColor="Transparent" WidthRequest="50" HorizontalOptions="End" FontSize="25" TextColor="White" Padding="0" Clicked="btnCerrar_Clicked"/>
 
             <Label Text="Registro" FontSize="50" HorizontalOptions="Center" Padding="0,10,0,10" TextColor="#E1E1E1" FontAttributes="Bold"/>
 
-            <Frame BackgroundColor="#3E5E78" Opacity="0.9" CornerRadius="20" Margin="15" BorderColor="#2E73AC">
+            <Frame Grid.Row="1"  Margin="15,0,15,50"  VerticalOptions="FillAndExpand" Opacity="0.8" CornerRadius="20" BackgroundColor="#2D343B" BorderColor="#353B41">
 
-                <Frame.Background RowDefinitions="Auto">
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                        <GradientStop Color="#306a9a" Offset="0" />
-                        <GradientStop Color="#2E6FA5" Offset="1" />
-                    </LinearGradientBrush>
-                </Frame.Background>
+                
 
                 <StackLayout>
                     <Entry x:Name="txtCedula" Placeholder="Cédula" PlaceholderColor="White" TextColor="White" Margin="30,10,30,10" Keyboard="Telephone"/>
@@ -41,8 +32,22 @@
 
                     <Entry x:Name="txtContra" Placeholder="Contraseña" PlaceholderColor="White" TextColor="White" Margin="30,0,30,10"/>
 
-                    <Entry x:Name="txtLicencia" Placeholder="Licencia" PlaceholderColor="White" TextColor="White" Margin="30,0,30,10"/>
-                    
+
+                    <Picker Title="Seleccione una opción" x:Name="txtLicencia" TextColor="White" Margin="30,0,30,10" TitleColor="White">
+                        <Picker.Items>
+                            <x:String>Licencia Tipo A1</x:String>
+                            <x:String>Licencia Tipo C</x:String>
+                            <x:String>Licencia Tipo C1</x:String>
+                            <x:String>Licencia Tipo D</x:String>
+                            <x:String>Licencia Tipo D1</x:String>
+                            <x:String>Licencia Tipo E</x:String>
+                            <x:String>Licencia Tipo E1</x:String>
+                            <x:String>Licencia Tipo G</x:String>
+                            <x:String>No dispongo de una licencia</x:String>
+
+                        </Picker.Items>
+                    </Picker>
+
                     <Entry x:Name="txtPerfil" TextColor="White" Margin="30,0,30,10" IsVisible="false" Text="1"/>
 
                     <Button 
@@ -61,6 +66,6 @@
                 </StackLayout>
             </Frame>
 
-        </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

@@ -25,55 +25,96 @@ namespace AutoRentingHCA
         {
             if (!String.IsNullOrEmpty(txtCedula.Text))
             {
-                if (!String.IsNullOrEmpty(txtUsuario.Text))
+                if (!String.IsNullOrEmpty(txtNombre.Text))
                 {
-                    if (!String.IsNullOrEmpty(txtContra.Text))
+                    if (!String.IsNullOrEmpty(txtApellido.Text))
                     {
-                        var action = await DisplayActionSheet("¿Estas seguro de tus datos?", null, "Sí", "No");
-
-                        if (action == "Sí")
+                        if (!String.IsNullOrEmpty(txtEmail.Text))
                         {
-                            WebClient client = new WebClient();
-
-                            try
+                            if (!String.IsNullOrEmpty(txtTelf.Text))
                             {
-                                var parameters = new System.Collections.Specialized.NameValueCollection();
-                                parameters.Add("CEDULA", txtCedula.Text);
-                                parameters.Add("NOMBRE", txtNombre.Text);
-                                parameters.Add("APELLIDO", txtApellido.Text);
-                                parameters.Add("EMAIL", txtEmail.Text);
-                                parameters.Add("TELEFONO", txtTelf.Text);
-                                parameters.Add("USUARIOCLIENTE", txtUsuario.Text);
-                                parameters.Add("CLAVECLIENTE_", txtContra.Text);
-                                parameters.Add("FOTOLICENCIA_", txtLicencia.Text);
-                                parameters.Add("PERFILCLIENTE", txtPerfil.Text);
+                                if (!String.IsNullOrEmpty(txtUsuario.Text))
+                                {
+                                    if (!String.IsNullOrEmpty(txtContra.Text))
+                                    {
+                                        if (txtLicencia.SelectedIndex != -1)
+                                        {
+                                            var action = await DisplayActionSheet("¿Estas seguro de tus datos?", null, "Sí", "No");
 
-                                client.UploadValues(Url, "POST", parameters);
-                                await DisplayAlert("Registro", "Usuario registrado con exito", "OK");
-                                await Navigation.PushAsync(new Login());
+                                            if (action == "Sí")
+                                            {
+                                                WebClient client = new WebClient();
 
+                                                try
+                                                {
+                                                    var parameters = new System.Collections.Specialized.NameValueCollection();
+                                                    parameters.Add("CEDULA", txtCedula.Text);
+                                                    parameters.Add("NOMBRE", txtNombre.Text);
+                                                    parameters.Add("APELLIDO", txtApellido.Text);
+                                                    parameters.Add("EMAIL", txtEmail.Text);
+                                                    parameters.Add("TELEFONO", txtTelf.Text);
+                                                    parameters.Add("USUARIOCLIENTE", txtUsuario.Text);
+                                                    parameters.Add("CLAVECLIENTE_", txtContra.Text);
+                                                    parameters.Add("FOTOLICENCIA_", txtLicencia.SelectedItem.ToString());
+                                                    parameters.Add("PERFILCLIENTE", txtPerfil.Text);
+
+                                                    client.UploadValues(Url, "POST", parameters);
+                                                    await DisplayAlert("Registro", "Usuario registrado con exito", "OK");
+                                                    await Navigation.PushAsync(new Login());
+
+                                                }
+                                                catch (Exception ex)
+                                                {
+                                                    Console.WriteLine(ex);
+                                                    await DisplayAlert("Error", "Se produjo un error, Intente mas tarde", "Cerrar");
+                                                }
+                                            }
+                                            else if (action == "No")
+                                            {
+                                                return;
+                                            }
+
+
+                                        }
+
+                                        else
+                                        {
+                                            await DisplayAlert("Alerta", "Seleccione su tipo de licencia", "Cerrar");
+                                        }
+
+                                    }
+                                    else
+                                    {
+                                        await DisplayAlert("Alerta", "Debe ingresar su contraseña", "Cerrar");
+                                    }
+                                }
+                                else
+                                {
+                                    await DisplayAlert("Alerta", "Debe ingresar su usuario", "Cerrar");
+                                }
                             }
-                            catch (Exception ex)
+
+                            else
                             {
-                                Console.WriteLine(ex);
-                                await DisplayAlert("Error", "Se produjo un error, Intente mas tarde", "Cerrar");
+                                await DisplayAlert("Alerta", "Debe ingresar su Teléfono", "Cerrar");
                             }
+
+
+
                         }
-                        else if (action == "No")
+                        else
                         {
-                            return;
+                            await DisplayAlert("Alerta", "Debe ingresar su Email", "Cerrar");
                         }
-
-
                     }
                     else
                     {
-                        await DisplayAlert("Alerta", "Debe ingresar su contraseña", "Cerrar");
+                        await DisplayAlert("Alerta", "Debe ingresar su Apellido", "Cerrar");
                     }
                 }
                 else
                 {
-                    await DisplayAlert("Alerta", "Debe ingresar su usuario", "Cerrar");
+                    await DisplayAlert("Alerta", "Debe ingresar su Nombre", "Cerrar");
                 }
             }
             else
