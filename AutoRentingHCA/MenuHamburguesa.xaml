@@ -39,6 +39,7 @@
                 <Button x:Name="btnContratarChofer" Text="Contratar Chofer" Padding="25" Margin="20,10,20,0" BackgroundColor="#d6d8d7" Clicked="btnContratarChofer_Clicked" CornerRadius="50"/>
             </StackLayout>
 
+
             <StackLayout BackgroundColor="Transparent" x:Name="adminInterface">
                 <Button x:Name="btnAdministrarMarcas" Clicked="btnAdministrarMarcas_Clicked" Text="Administrar Marcas" Padding="25" Margin="20,10,20,0" CornerRadius="50" BackgroundColor="#d6d8d7"/>
                 <Button x:Name="btnAdministrarAutos" Clicked="btnAdministrarAutos_Clicked" Text="Administrar Auto" Padding="25" Margin="20,10,20,0" CornerRadius="50" BackgroundColor="#d6d8d7"/>

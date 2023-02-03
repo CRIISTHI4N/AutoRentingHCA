@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
@@ -16,7 +17,7 @@ namespace AutoRentingHCA
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class VisualizarAlquilacion : ContentPage
     {
-
+        //192.168.70.180
         //192.168.1.11
         private const string Url = "http://192.168.70.180/proyecto/renta.php";
         private const string UrlUp = "http://192.168.70.180/proyecto/renta.php?IDAUTOS={0}&ESTADOAUTO={1}";
@@ -46,11 +47,16 @@ namespace AutoRentingHCA
 
         private async void btnAlquilarAuto_Clicked(object sender, EventArgs e)
         {
+            
             if (!String.IsNullOrEmpty(etDias.Text))
             {
                     if (!String.IsNullOrEmpty(etDireccion.Text))
                     {
                         if (!String.IsNullOrEmpty(etTelf.Text))
+                        {
+                        string telf = etTelf.Text;
+                        bool isValidtele = Regex.IsMatch(telf, @"^\d{10}$");
+                        if (isValidtele)
                         {
                             var action = await DisplayActionSheet("¿Estas seguro de tus datos?", null, "Sí", "No");
 
@@ -115,13 +121,19 @@ namespace AutoRentingHCA
                             {
                                 return;
                             }
-
+                        }
+                        else
+                        {
+                            await DisplayAlert("Alerta", "Su telefono debe tener 10 digitos  ", "Cerrar");
+                        }
+                        
 
                         }
                         else
                         {
                             await DisplayAlert("Alerta", "Debe ingresar su teléfono", "Cerrar");
                         }
+                        
                     }
                     else
                     {

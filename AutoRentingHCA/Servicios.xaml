@@ -8,12 +8,19 @@
 
                 <StackLayout.Background RowDefinitions="Auto">
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                        <GradientStop Color="#568EBD" Offset="0" />
-                        <GradientStop Color="#3871A0" Offset="1" />
+                        <GradientStop Color="#1e1e26" Offset="0" />
+                        <GradientStop Color="#2C2C3E" Offset="1" />
                     </LinearGradientBrush>
                 </StackLayout.Background>
 
                 <Frame CornerRadius="45" HasShadow="True" VerticalOptions="Start">
+
+                    <Frame.Background RowDefinitions="Auto">
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#F5F5F5" Offset="0" />
+                            <GradientStop Color="#EFEFEF" Offset="1" />
+                        </LinearGradientBrush>
+                    </Frame.Background>
                     <StackLayout HorizontalOptions="Center">
                         <Image Source="icon1.png" />
                         <Label Text="Alexis Analuisa" TextColor="Black" FontAttributes="Bold" />

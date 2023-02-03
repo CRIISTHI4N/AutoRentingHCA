@@ -4,9 +4,58 @@
              x:Class="AutoRentingHCA.AdministrarMarcas">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="AdministrarMarcas"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+
+            <StackLayout.Background RowDefinitions="Auto">
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#1e1e26" Offset="0" />
+                    <GradientStop Color="#2C2C3E" Offset="1" />
+                </LinearGradientBrush>
+            </StackLayout.Background>
+
+            <Label Text="Administrar Marcas" TextColor="#EAEAEA" FontSize="25" HorizontalTextAlignment="Center" Padding="0,20,0,30"/>
+
+            <ListView x:Name="lstMarcas" SelectionMode="Single" ItemSelected="lstMarcas_ItemSelected" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width=".1*"/>
+                                        <ColumnDefinition Width=".2*"/>
+                                        <ColumnDefinition Width=".3*"/>
+                                        <ColumnDefinition Width=".4*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="5*"/>
+                                        <RowDefinition Height="6*"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Label Text="{Binding IDMARCAS}" Grid.Column="0" 
+                                           FontAttributes="None" FontSize="15" TextColor="#EAEAEA" HorizontalTextAlignment="Center"/>
+                                    <Label Text="{Binding NOMBREMARCA}" Grid.Column="1" 
+                                           FontAttributes="None" FontSize="15" TextColor="#EAEAEA" HorizontalTextAlignment="Center"/>
+                                    <Label Text="{Binding ESTADOMARCA}" Grid.Column="2" 
+                                           FontAttributes="None" FontSize="15" TextColor="#EAEAEA" HorizontalTextAlignment="Center"/>
+                                    <Label Text="{Binding FECHAREGISTROMAR}" Grid.Column="3" 
+                                           FontAttributes="None" FontSize="15" TextColor="#EAEAEA" HorizontalTextAlignment="Center"/>
+                                </Grid>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Button Text="Ingresar marca"
+                    x:Name="btnIngresar"
+                    Clicked="btnIngresar_Clicked"/>
+            <Button Text="Actualizar marca"
+                    x:Name="btnActualizar"
+                    Clicked="btnActualizar_Clicked"
+                    />
+            <Button Text="Eliminar marca"
+                    x:Name="btnEliminar"
+                    Clicked="btnEliminar_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

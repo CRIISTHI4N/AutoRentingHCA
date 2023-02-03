@@ -4,6 +4,14 @@
              x:Class="AutoRentingHCA.AdministrarAutos">
     <ContentPage.Content>
         <StackLayout>
+
+            <StackLayout.Background RowDefinitions="Auto">
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#1e1e26" Offset="0" />
+                    <GradientStop Color="#2C2C3E" Offset="1" />
+                </LinearGradientBrush>
+            </StackLayout.Background>
+
             <Label Text="Administra Autos"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />

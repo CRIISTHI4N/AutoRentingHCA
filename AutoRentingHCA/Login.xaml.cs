@@ -20,7 +20,7 @@ namespace AutoRentingHCA
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
         }
-
+        // 192.168.70.180
         // 192.168.1.11
         private const string Url = "http://192.168.70.180/proyecto/usuario.php?USUARIOCLIENTE={0}&CLAVECLIENTE_={1}";
         private readonly HttpClient client = new HttpClient();       
@@ -39,7 +39,6 @@ namespace AutoRentingHCA
                         var content = await client.GetStringAsync(uri);
 
                         if (content != "false")
-                        //if(tUsuario == "a" && tPass == "a")
                         {
                             Datos post = JsonConvert.DeserializeObject<Datos>(content);
                             int tipoUsuario = post.PERFILCLIENTE;

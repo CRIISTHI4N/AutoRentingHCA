@@ -15,6 +15,7 @@ namespace AutoRentingHCA
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AlquilarCarro : ContentPage
     {
+        //192.168.70.180
         // 192.168.1.11
         private const string Url = "http://192.168.70.180/proyecto/autos.php";
 

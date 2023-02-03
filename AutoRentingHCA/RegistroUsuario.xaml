@@ -6,17 +6,21 @@
 
         <Grid RowDefinitions="*,Auto" BackgroundColor="#2e2125">
 
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#060105" Offset="0" />
+                    <GradientStop Color="#282433" Offset="1" />
+                </LinearGradientBrush>
+            </Grid.Background>
+            
+            <!--Esto es un cambio-->
+
             <Image Grid.RowSpan="2" VerticalOptions="Start" Aspect="AspectFill" Source="imagencarro2.jpg" HeightRequest="500"/>
 
+            <Button Grid.Row="0" Grid.Column="0" Text="X" Margin="0,-80,0,0" x:Name="btnCerrar" BackgroundColor="Transparent" WidthRequest="50" HorizontalOptions="End" FontSize="25" TextColor="White" Padding="0" Clicked="btnCerrar_Clicked"/>
+            <Label Grid.Row="0" Grid.Column="0" Text="Registro" FontSize="50" HorizontalOptions="Center" Padding="0,40,0,0" TextColor="#E1E1E1" FontAttributes="Bold"/>
 
-            <Button Text="X" x:Name="btnCerrar" BackgroundColor="Transparent" WidthRequest="50" HorizontalOptions="End" FontSize="25" TextColor="White" Padding="0" Clicked="btnCerrar_Clicked"/>
-
-            <Label Text="Registro" FontSize="50" HorizontalOptions="Center" Padding="0,10,0,10" TextColor="#E1E1E1" FontAttributes="Bold"/>
-
-            <Frame Grid.Row="1"  Margin="15,0,15,50"  VerticalOptions="FillAndExpand" Opacity="0.8" CornerRadius="20" BackgroundColor="#2D343B" BorderColor="#353B41">
-
-                
-
+            <Frame Grid.Row="1"  Margin="15,0,15,50"  VerticalOptions="FillAndExpand" Opacity="0.9" CornerRadius="20" BackgroundColor="#243240" BorderColor="#32404F">
                 <StackLayout>
                     <Entry x:Name="txtCedula" Placeholder="Cédula" PlaceholderColor="White" TextColor="White" Margin="30,10,30,10" Keyboard="Telephone"/>
 
@@ -33,7 +37,7 @@
                     <Entry x:Name="txtContra" Placeholder="Contraseña" PlaceholderColor="White" TextColor="White" Margin="30,0,30,10"/>
 
 
-                    <Picker Title="Seleccione una opción" x:Name="txtLicencia" TextColor="White" Margin="30,0,30,10" TitleColor="White">
+                    <Picker Title="Tipo de licencia" x:Name="txtLicencia" TextColor="White" Margin="30,0,30,10" TitleColor="#E5608C">
                         <Picker.Items>
                             <x:String>Licencia Tipo A1</x:String>
                             <x:String>Licencia Tipo C</x:String>
@@ -44,7 +48,6 @@
                             <x:String>Licencia Tipo E1</x:String>
                             <x:String>Licencia Tipo G</x:String>
                             <x:String>No dispongo de una licencia</x:String>
-
                         </Picker.Items>
                     </Picker>
 

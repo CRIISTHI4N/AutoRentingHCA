@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AutoRentingHCA.IngresarMarca">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry x:Name="txtIdMarca" Placeholder="Id" IsVisible="False"/>
+            <Entry x:Name="txtNombreMarca" Placeholder="Marca" />
+
+            <Picker Title="Estado Marca" x:Name="txtMarca" TextColor="White" TitleColor="#E5608C">
+                <Picker.Items>
+                    <x:String>1</x:String>
+                    <x:String>0</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Label Text="1 - Disponible"/>
+            <Label Text="0 - Ocupado"/>
+
+            <Entry x:Name="txtFechaRegistro" Placeholder="Fecha Registro" IsVisible="False"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
