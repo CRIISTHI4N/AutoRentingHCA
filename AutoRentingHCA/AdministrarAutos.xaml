@@ -12,9 +12,131 @@
                 </LinearGradientBrush>
             </StackLayout.Background>
 
-            <Label Text="Administra Autos"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Administrar Autos" TextColor="#EAEAEA" FontAttributes="None" FontSize="25" HorizontalTextAlignment="Center" Padding="0,20,0,20" />
+
+            <StackLayout HeightRequest="83" Margin="5,0,5,0">
+                <Grid>
+                    <Button Text="Autos activos" 
+                            Grid.Row="0" 
+                            Grid.Column="0"
+                            BackgroundColor="Transparent" 
+                            BorderWidth="1" 
+                            FontAttributes="None" 
+                            CornerRadius="10" 
+                            BorderColor="#FF846E"
+                            TextColor="White"
+                            x:Name="btnEstado1"
+                            Clicked="btnEstado1_Clicked"
+                            FontSize="13"
+                            Padding="0"/>
+
+                    <Button Text="Autos Ocupados" 
+                            Grid.Row="0" 
+                            Grid.Column="1"
+                            BackgroundColor="Transparent" 
+                            BorderWidth="1" 
+                            FontAttributes="None" 
+                            CornerRadius="10" 
+                            BorderColor="#FF846E"
+                            TextColor="White"
+                            x:Name="btnEstado0"
+                            Clicked="btnEstado0_Clicked"
+                            FontSize="13"
+                            Padding="0"
+                            HeightRequest="50"/>
+
+                    <Button Text="Todos" 
+                            Grid.Row="0" 
+                            Grid.Column="2"
+                            BackgroundColor="Transparent" 
+                            BorderWidth="1" 
+                            FontAttributes="None" 
+                            CornerRadius="10" 
+                            BorderColor="#FF846E"
+                            TextColor="White"
+                            x:Name="btnTodos"
+                            Clicked="btnTodos_Clicked"
+                            FontSize="13"
+                            Padding="0"/>
+                </Grid>
+            </StackLayout>
+
+
+            <StackLayout HeightRequest="70">
+                <Grid BackgroundColor="#393939" Padding="0,10,0,10" Margin="2">
+                    <Label Text="ID" TextColor="#F1F1F1" FontAttributes="None" Grid.Column="0" Grid.Row="0" HorizontalTextAlignment="Center" FontSize="10"/>
+                    <Label Text="ID Marca" TextColor="#F1F1F1" FontAttributes="None" Grid.Column="1" Grid.Row="0" HorizontalTextAlignment="Center" FontSize="10"/>
+                    <Label Text="Nombre" TextColor="#F1F1F1" FontAttributes="None" Grid.Column="2" Grid.Row="0"  HorizontalTextAlignment="Center" FontSize="10"/>
+                    <Label Text="Tipo" TextColor="#F1F1F1" FontAttributes="None" Grid.Column="3" Grid.Row="0" HorizontalTextAlignment="Center" FontSize="10"/>
+                    <Label Text="Modelo" TextColor="#F1F1F1" FontAttributes="None" Grid.Column="4" Grid.Row="0" HorizontalTextAlignment="Center" FontSize="10"/>
+                    <Label Text="Placa" TextColor="#F1F1F1" FontAttributes="None" Grid.Column="5" Grid.Row="0"  HorizontalTextAlignment="Center" FontSize="10"/>
+                    <Label Text="Precio" TextColor="#F1F1F1" FontAttributes="None" Grid.Column="6" Grid.Row="0" HorizontalTextAlignment="Center" FontSize="10"/>
+                    <Label Text="Color" TextColor="#F1F1F1" FontAttributes="None" Grid.Column="7" Grid.Row="0" HorizontalTextAlignment="Center" FontSize="10"/>
+                    <Label Text="Estado" TextColor="#F1F1F1" FontAttributes="None" Grid.Column="8" Grid.Row="0" HorizontalTextAlignment="Center" FontSize="10"/>
+
+                    <Label Text="Foto" TextColor="#F1F1F1" FontAttributes="None" Grid.Column="4" Grid.Row="0"  HorizontalTextAlignment="Center" FontSize="10" IsVisible="False"/>
+                </Grid>
+            </StackLayout>
+            <ListView x:Name="lstAutos" SelectionMode="Single" ItemSelected="lstAutos_ItemSelected" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Grid BackgroundColor="#6B6B6B" Margin="2" Padding="0,10,0,10">
+
+                                    <Label Text="{Binding IDAUTOS}" Grid.Column="0" 
+                                           FontAttributes="None" FontSize="10" TextColor="White" HorizontalTextAlignment="Center"/>
+                                    <Label Text="{Binding IDMARCAS}" Grid.Column="1"  
+                                           FontAttributes="None" FontSize="10" TextColor="White" HorizontalOptions="CenterAndExpand"/>
+                                    <Label Text="{Binding NOMBREAUTO}" Grid.Column="2" 
+                                           FontAttributes="None" FontSize="10" TextColor="White" HorizontalOptions="CenterAndExpand"/>
+                                    <Label Text="{Binding TIPOAUTO}" Grid.Column="3" 
+                                           FontAttributes="None" FontSize="10" TextColor="White" HorizontalOptions="CenterAndExpand"/>
+                                    <Label Text="{Binding MODELOAUTO}" Grid.Column="4" 
+                                           FontAttributes="None" FontSize="10" TextColor="White" HorizontalOptions="CenterAndExpand"/>
+                                    <Label Text="{Binding PLACAAUTO}" Grid.Column="5" 
+                                           FontAttributes="None" FontSize="10" TextColor="White" HorizontalOptions="CenterAndExpand"/>
+                                    <Label Text="{Binding PRECIOAUTO, StringFormat='$ {0}'}" Grid.Column="6" 
+                                           FontAttributes="None" FontSize="10" TextColor="White" HorizontalOptions="CenterAndExpand"/>
+                                    <Label Text="{Binding COLORAUTO}" Grid.Column="7" 
+                                           FontAttributes="None" FontSize="10" TextColor="White" HorizontalOptions="CenterAndExpand"/>
+                                    <Label Text="{Binding ESTADOAUTO}" Grid.Column="8" 
+                                           FontAttributes="None" FontSize="10" TextColor="White" HorizontalOptions="CenterAndExpand"/>
+
+                                    <Label Text="{Binding foto}" Grid.Column="4" IsVisible="False"
+                                           FontAttributes="None" FontSize="10" TextColor="White" HorizontalOptions="CenterAndExpand"/>
+                                </Grid>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <StackLayout VerticalOptions="EndAndExpand" HeightRequest="70" Margin="2">
+                <Grid>
+                    <Button Text="Ingresar"
+                    x:Name="btnIngresar"
+                    Clicked="btnIngresar_Clicked"
+                    BackgroundColor="#96CBFF"
+                    Grid.Row="0" 
+                    Grid.Column="0"/>
+
+                    <Button Text="Actualizar"
+                    x:Name="btnActualizar"
+                    Clicked="btnActualizar_Clicked"
+                    BackgroundColor="#96CBFF"
+                    Grid.Row="0" 
+                    Grid.Column="1"/>
+
+                    <Button Text="Eliminar"
+                    x:Name="btnEliminar"
+                    Clicked="btnEliminar_Clicked"
+                    BackgroundColor="#FF9696"
+                    Grid.Row="0" 
+                    Grid.Column="2"/>
+                </Grid>
+            </StackLayout>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -17,27 +17,28 @@
 
             <Image Grid.RowSpan="2" VerticalOptions="Start" Aspect="AspectFill" Source="imagencarro2.jpg" HeightRequest="500"/>
 
-            <Button Grid.Row="0" Grid.Column="0" Text="X" Margin="0,-80,0,0" x:Name="btnCerrar" BackgroundColor="Transparent" WidthRequest="50" HorizontalOptions="End" FontSize="25" TextColor="White" Padding="0" Clicked="btnCerrar_Clicked"/>
-            <Label Grid.Row="0" Grid.Column="0" Text="Registro" FontSize="50" HorizontalOptions="Center" Padding="0,40,0,0" TextColor="#E1E1E1" FontAttributes="Bold"/>
+            <Button Grid.Row="0" Grid.Column="0" Text="X" Margin="0,0,0,0" x:Name="btnCerrar" BackgroundColor="Transparent" WidthRequest="50" HorizontalOptions="End" FontSize="25" TextColor="White" Padding="0" Clicked="btnCerrar_Clicked"/>
+            <Label Grid.Row="0" Grid.Column="0" Text="Registro" FontSize="45" HorizontalOptions="Center" Padding="0,0,0,0" TextColor="#E1E1E1" FontAttributes="Bold"/>
 
             <Frame Grid.Row="1"  Margin="15,0,15,50"  VerticalOptions="FillAndExpand" Opacity="0.9" CornerRadius="20" BackgroundColor="#243240" BorderColor="#32404F">
                 <StackLayout>
-                    <Entry x:Name="txtCedula" Placeholder="Cédula" PlaceholderColor="White" TextColor="White" Margin="30,10,30,10" Keyboard="Telephone"/>
+                    <Label Text="Cédula:" TextColor="White" FontSize="13" Margin="35,0,0,-10"/>
+                    <Entry x:Name="txtCedula" TextColor="White" Margin="30,00,30,10" Keyboard="Telephone"/>
+                    <Label Text="Nombre:" TextColor="White" FontSize="13" Margin="35,0,0,-10"/>
+                    <Entry x:Name="txtNombre" TextColor="White" Margin="30,0,30,10"/>
+                    <Label Text="Apellido:" TextColor="White" FontSize="13" Margin="35,0,0,-10"/>
+                    <Entry x:Name="txtApellido" TextColor="White" Margin="30,0,30,10"/>
+                    <Label Text="Email:" TextColor="White" FontSize="13" Margin="35,0,0,-10"/>
+                    <Entry x:Name="txtEmail" TextColor="White" Margin="30,0,30,10" Keyboard="Email"/>
+                    <Label Text="Teléfono:" TextColor="White" FontSize="13" Margin="35,0,0,-10"/>
+                    <Entry x:Name="txtTelf" TextColor="White" Margin="30,0,30,10" Keyboard="Telephone"/>
+                    <Label Text="Usuario:" TextColor="White" FontSize="13" Margin="35,0,0,-10"/>
+                    <Entry x:Name="txtUsuario" TextColor="White" Margin="30,0,30,10"/>
+                    <Label Text="Contraseña:" TextColor="White" FontSize="13" Margin="35,0,0,-10"/>
+                    <Entry x:Name="txtContra" TextColor="White" Margin="30,0,30,10"/>
 
-                    <Entry x:Name="txtNombre" Placeholder="Nombre" PlaceholderColor="White" TextColor="White" Margin="30,0,30,10"/>
-
-                    <Entry x:Name="txtApellido" Placeholder="Apellido" PlaceholderColor="White" TextColor="White" Margin="30,0,30,10"/>
-
-                    <Entry x:Name="txtEmail" Placeholder="Email" PlaceholderColor="White" TextColor="White" Margin="30,0,30,10" Keyboard="Email"/>
-
-                    <Entry x:Name="txtTelf" Placeholder="Teléfono" PlaceholderColor="White" TextColor="White" Margin="30,0,30,10" Keyboard="Telephone"/>
- 
-                    <Entry x:Name="txtUsuario" Placeholder="Usuario" PlaceholderColor="White" TextColor="White" Margin="30,0,30,10"/>
-
-                    <Entry x:Name="txtContra" Placeholder="Contraseña" PlaceholderColor="White" TextColor="White" Margin="30,0,30,10"/>
-
-
-                    <Picker Title="Tipo de licencia" x:Name="txtLicencia" TextColor="White" Margin="30,0,30,10" TitleColor="#E5608C">
+                    <Label Text="Tipo de licencia:" TextColor="White" FontSize="13" Margin="35,0,0,-10"/>
+                    <Picker Title="Seleccione" x:Name="txtLicencia" TextColor="White" Margin="30,0,30,10" TitleColor="White">
                         <Picker.Items>
                             <x:String>Licencia Tipo A1</x:String>
                             <x:String>Licencia Tipo C</x:String>
@@ -58,7 +59,7 @@
                         Text="Crear cuenta" 
                         HorizontalOptions="FillAndExpand" 
                         Clicked="btnCrear_Clicked" 
-                        Margin="50,20,50,20" 
+                        Margin="50,10,50,0" 
                         BackgroundColor="Transparent" 
                         BorderColor="White" 
                         BorderWidth="1" 

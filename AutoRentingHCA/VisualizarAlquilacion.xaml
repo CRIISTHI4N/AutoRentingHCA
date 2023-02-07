@@ -35,7 +35,7 @@
                             <Label Text="Placa:" Grid.Row="0" Grid.Column="0" TextColor="#393939" FontSize="13"/>
                             <Label x:Name="lblPlaca" Text="" Grid.Row="0" Grid.Column="0" TextColor="#393939" FontSize="18" FontAttributes="Bold"/>
                             <Label Text="Precio:" Grid.Row="0" Grid.Column="0" TextColor="#393939" FontSize="13"/>
-                            <Label Text="$ " Grid.Row="0" Grid.Column="0" TextColor="Black" FontAttributes="Bold" Margin="0,0,0,0" FontSize="18"/>
+                            <Label Text="$ " Grid.Row="0" Grid.Column="0" TextColor="#393939" FontAttributes="Bold" Margin="0,0,0,0" FontSize="18"/>
                             <Label x:Name="lblPrecio" Margin="17,-30,0,0" Text="" Grid.Row="0" Grid.Column="0" TextColor="#393939" FontSize="18" FontAttributes="Bold"/>
                             <Label Text="Color:" Grid.Row="0" Grid.Column="0" TextColor="#393939" FontSize="13"/>
                             <Label x:Name="lblColor" Text="" Grid.Row="0" Grid.Column="0" TextColor="#393939" FontSize="18" FontAttributes="Bold"/>
@@ -44,8 +44,7 @@
                             <Label x:Name="lblFecha" Text="" Grid.Row="0" Grid.Column="0" IsVisible="False"/>
                         </StackLayout>
 
-                        <StackLayout Grid.ColumnSpan="2" Grid.Row="1" Margin="0,-80,0,0" HorizontalOptions="FillAndExpand">
-                            <Label Text="Formulario" HorizontalOptions="Center" TextColor="#252525" FontSize="25" FontAttributes="Bold"/>
+                        <StackLayout Grid.ColumnSpan="2" Grid.Row="1" Margin="0,-55,0,0" HorizontalOptions="FillAndExpand">
                             
                             <Entry x:Name="cedu" Placeholder="Cedula" IsVisible="False"/>
                             <Entry x:Name="entrIdRenta" IsVisible="False"/>
@@ -61,9 +60,6 @@
                             <Entry x:Name="etDireccion"/>
                             <Label Text="Teléfono:" TextColor="#393939" FontSize="13" Margin="5,0,0,-13" />
                             <Entry x:Name="etTelf" Keyboard="Telephone"/>
-
-
-
 
                             <Button x:Name="btnAlquilarAuto" Text="Alquilar" Clicked="btnAlquilarAuto_Clicked" BackgroundColor="#FF846E" FontAttributes="Bold" CornerRadius="10"/>
 

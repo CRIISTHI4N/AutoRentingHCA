@@ -22,7 +22,7 @@ namespace AutoRentingHCA
         }
         // 192.168.70.180
         // 192.168.1.11
-        private const string Url = "http://192.168.70.180/proyecto/usuario.php?USUARIOCLIENTE={0}&CLAVECLIENTE_={1}";
+        private const string Url = "http://192.168.1.11/proyecto/usuario.php?USUARIOCLIENTE={0}&CLAVECLIENTE_={1}";
         private readonly HttpClient client = new HttpClient();       
 
         private async void btnIniciarSesion_Clicked(object sender, EventArgs e)
@@ -43,7 +43,14 @@ namespace AutoRentingHCA
                             Datos post = JsonConvert.DeserializeObject<Datos>(content);
                             int tipoUsuario = post.PERFILCLIENTE;
                             string cedula = post.CEDULA;
-                            await Navigation.PushAsync(new MainPage(Usuario, tipoUsuario, tipoUsuario, cedula)); /*tipoUsuario*/
+                            string nombre = post.NOMBRE;
+                            string apellido = post.APELLIDO;
+                            string email = post.EMAIL;
+                            string telefono = post.TELEFONO;
+                            string clave = post.CLAVECLIENTE_;
+                            string tipolicencia = post.FOTOLICENCIA_;
+                            await Navigation.PushAsync(new MainPage(Usuario, tipoUsuario, tipoUsuario, 
+                                cedula, nombre, apellido, email, telefono, clave, tipolicencia));
                         }
                         else
                         {
@@ -57,12 +64,12 @@ namespace AutoRentingHCA
                 }
                 else
                 {
-                    await DisplayAlert("Alerta", "Debe ingresar su Contraseña", "Cerrar");
+                    await DisplayAlert("Alerta", "Ingrese su contraseña", "Cerrar");
                 }
             }
             else
             {
-                await DisplayAlert("Alerta", "Debe ingresar su Usuario", "Cerrar");
+                await DisplayAlert("Alerta", "Ingrese su usuario", "Cerrar");
             }
         }
 

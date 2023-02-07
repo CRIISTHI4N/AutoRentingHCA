@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AutoRentingHCA.Home">
+
     <ContentPage.Content>
         <StackLayout>
 
@@ -15,21 +16,57 @@
             <Label Text="La mejor experiencia!"
                    FontSize="42"
                    HorizontalOptions="Center"
-                   TextColor="#F2F2F2"
-                   Padding="30,20,0,10"/>
+                   TextColor="#EFEFEF"
+                   Padding="30,15,0,0"/>
 
-            <CarouselView x:Name="Carousel" IndicatorView="IndicatorView" HeightRequest="300" WidthRequest="100">
-                <CarouselView.ItemTemplate>
-                    <DataTemplate>
-                        <Image Source="{Binding Url}" Aspect="AspectFill"/>
-                    </DataTemplate>
-                </CarouselView.ItemTemplate>
-            </CarouselView>
-            <IndicatorView x:Name="IndicatorView"
+            <Frame CornerRadius="20" Padding="0" Margin="7" BackgroundColor="Transparent">
+                <StackLayout BackgroundColor="Transparent">
+                    <CarouselView x:Name="Carousel" IndicatorView="IndicatorView" HeightRequest="220" WidthRequest="100">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding Url}" Aspect="AspectFill"/>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+                <IndicatorView x:Name="IndicatorView"
                            IndicatorColor="Gray"
                            SelectedIndicatorColor="#DADADA"
                            IndicatorSize="10"
-                           VerticalOptions="Center"/>
+                           VerticalOptions="Center"
+                               IsVisible="False"/>
+                </StackLayout>
+            </Frame>
+
+            <Label Text="Categorías" TextColor="#EFEFEF" FontSize="18" Margin="15,10,0,5"/>
+
+            <Frame Padding="5" BackgroundColor="#53535E" Margin="15,0,15,0" CornerRadius="50" BorderColor="#65656B">
+                <Grid>
+                    <Button Text="Familiar" Grid.Row="0" Grid.Column="0" BackgroundColor="#9daaa6" Padding="20" CornerRadius="50" TextColor="#191919" FontSize="13" FontAttributes="Bold"/>
+                    <Button Text="Deportivo" Grid.Row="0" Grid.Column="1" BackgroundColor="Transparent" Padding="20" TextColor="#191919" FontSize="13" FontAttributes="Bold"/>
+                    <Button Text="4 x 4" Grid.Row="0" Grid.Column="2" BackgroundColor="Transparent" Padding="20" TextColor="#191919" FontSize="13" FontAttributes="Bold"/>
+                </Grid>
+            </Frame>
+
+            <Label Text="Encuentranos en" TextColor="#EFEFEF" FontSize="18" Margin="15,10,0,5"/>
+
+            <Frame Padding="0" Margin="15,0,15,0" BackgroundColor="red" CornerRadius="10">
+                <Image Source="uboc.jpeg" HeightRequest="100" Aspect="AspectFill"/>
+            </Frame>
+            
+
+            <Frame Padding="0" Margin="15,0,15,20" CornerRadius="50" VerticalOptions="EndAndExpand" BackgroundColor="#53535E" BorderColor="#65656B">
+                <Grid Padding="15">
+
+                    <Grid.Background RowDefinitions="Auto">
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#95D8FF" Offset="0" />
+                            <GradientStop Color="#9597FF" Offset="1" />
+                        </LinearGradientBrush>
+                    </Grid.Background>
+
+                    <Label x:Name="lblWellcome" Text="" TextColor="#1E1E1E" FontSize="18" Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center"/>
+                </Grid>
+            </Frame>
 
         </StackLayout>
     </ContentPage.Content>

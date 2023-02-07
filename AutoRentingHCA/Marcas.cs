@@ -9,6 +9,5 @@ namespace AutoRentingHCA
         public int IDMARCAS { get; set; }
         public string NOMBREMARCA { get; set; }
         public int ESTADOMARCA { get; set; }
-        public DateTime FECHAREGISTROMAR { get; set; }
     }
 }

@@ -13,7 +13,6 @@
             </Grid.Background>
 
             <Image Grid.RowSpan="2" VerticalOptions="Start" Aspect="AspectFill" Source="mainImage.jpg" HeightRequest="500"/>
-            <Label Grid.Row="0" Text="Hola!" FontSize="44" TextColor="#D7D7D7" VerticalOptions="End"  HorizontalOptions="End" FontAttributes="Bold" Padding="20,30,20,20"/>
 
             <Frame Grid.Row="1" HasShadow="False" Margin="15,0,15,50" VerticalOptions="FillAndExpand" CornerRadius="20" Opacity="0.8" BackgroundColor="#2D343B" BorderColor="#353B41">
                 <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" RowSpacing="25" Padding="0,10,0,0">

@@ -12,33 +12,29 @@
                 </LinearGradientBrush>
             </StackLayout.Background>
 
-            <Label Text="Administrar Marcas" TextColor="#EAEAEA" FontSize="25" HorizontalTextAlignment="Center" Padding="0,20,0,30"/>
+            <Label Text="Administrar Marcas" TextColor="#EAEAEA" FontAttributes="None" FontSize="25" HorizontalTextAlignment="Center" Padding="0,20,0,30"/>
+
+            <StackLayout HeightRequest="70">
+                <Grid BackgroundColor="#393939" Padding="0,10,0,10" Margin="2">
+                    <Label Text="ID" TextColor="#F1F1F1" FontAttributes="Bold" Grid.Column="0" Grid.Row="0" HorizontalTextAlignment="Center" FontSize="15"/>
+                    <Label Text="Marca" TextColor="#F1F1F1" FontAttributes="Bold" Grid.Column="1" Grid.Row="0" HorizontalTextAlignment="Center" FontSize="15"/>
+                    <Label Text="Estado" TextColor="#F1F1F1" FontAttributes="Bold" Grid.Column="2" Grid.Row="0"  HorizontalTextAlignment="Center" FontSize="15"/>
+                </Grid>
+            </StackLayout>
 
             <ListView x:Name="lstMarcas" SelectionMode="Single" ItemSelected="lstMarcas_ItemSelected" HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width=".1*"/>
-                                        <ColumnDefinition Width=".2*"/>
-                                        <ColumnDefinition Width=".3*"/>
-                                        <ColumnDefinition Width=".4*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="5*"/>
-                                        <RowDefinition Height="6*"/>
-                                    </Grid.RowDefinitions>
+                                <Grid BackgroundColor="#6B6B6B" Margin="2" Padding="0,10,0,10">
 
                                     <Label Text="{Binding IDMARCAS}" Grid.Column="0" 
-                                           FontAttributes="None" FontSize="15" TextColor="#EAEAEA" HorizontalTextAlignment="Center"/>
-                                    <Label Text="{Binding NOMBREMARCA}" Grid.Column="1" 
-                                           FontAttributes="None" FontSize="15" TextColor="#EAEAEA" HorizontalTextAlignment="Center"/>
+                                           FontAttributes="None" FontSize="15" TextColor="White" HorizontalTextAlignment="Center"/>
+                                    <Label Text="{Binding NOMBREMARCA}" Grid.Column="1"  
+                                           FontAttributes="None" FontSize="15" TextColor="White" HorizontalOptions="CenterAndExpand"/>
                                     <Label Text="{Binding ESTADOMARCA}" Grid.Column="2" 
-                                           FontAttributes="None" FontSize="15" TextColor="#EAEAEA" HorizontalTextAlignment="Center"/>
-                                    <Label Text="{Binding FECHAREGISTROMAR}" Grid.Column="3" 
-                                           FontAttributes="None" FontSize="15" TextColor="#EAEAEA" HorizontalTextAlignment="Center"/>
+                                           FontAttributes="None" FontSize="15" TextColor="White" HorizontalOptions="CenterAndExpand"/>
                                 </Grid>
                             </StackLayout>
                         </ViewCell>
@@ -46,16 +42,31 @@
                 </ListView.ItemTemplate>
             </ListView>
 
-            <Button Text="Ingresar marca"
+            <StackLayout VerticalOptions="EndAndExpand" HeightRequest="70" Margin="2">
+                <Grid>
+                    <Button Text="Ingresar"
                     x:Name="btnIngresar"
-                    Clicked="btnIngresar_Clicked"/>
-            <Button Text="Actualizar marca"
+                    Clicked="btnIngresar_Clicked"
+                    BackgroundColor="#96CBFF"
+                    Grid.Row="0" 
+                    Grid.Column="0"/>
+                    
+                    <Button Text="Actualizar"
                     x:Name="btnActualizar"
                     Clicked="btnActualizar_Clicked"
-                    />
-            <Button Text="Eliminar marca"
+                    BackgroundColor="#96CBFF"
+                    Grid.Row="0" 
+                    Grid.Column="1"/>
+                    
+                    <Button Text="Eliminar"
                     x:Name="btnEliminar"
-                    Clicked="btnEliminar_Clicked"/>
+                    Clicked="btnEliminar_Clicked"
+                    BackgroundColor="#FF9696"
+                    Grid.Row="0" 
+                    Grid.Column="2"/>
+                </Grid>
+            </StackLayout>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

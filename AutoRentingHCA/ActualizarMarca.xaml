@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AutoRentingHCA.IngresarMarca">
+             x:Class="AutoRentingHCA.ActualizarMarca">
     <ContentPage.Content>
         <StackLayout>
 
@@ -14,29 +14,30 @@
 
             <Image x:Name="imgAuto" Source="logo.jpeg" />
 
+
             <Frame VerticalOptions="FillAndExpand" CornerRadius="10" Margin="0,-17,0,0">
                 <StackLayout>
-                    <Label Text="Ingresar" HorizontalTextAlignment="Center" FontSize="25" TextColor="#393939"/>
-
+                    <Label Text="Actualizar" HorizontalTextAlignment="Center" FontSize="25" TextColor="#393939"/>
+                    
                     <Entry x:Name="txtIdMarca" Placeholder="Id" IsVisible="False"/>
 
                     <Label Text="Marca:" TextColor="#393939" FontSize="13" Margin="35,20,0,-10"/>
-                    <Entry x:Name="txtNombreMarca" Margin="30,0,30,0"/>
+                    <Entry x:Name="txtNombreMarca" Placeholder="Marca" Margin="30,0,30,0"/>
 
-                    <Label Text="Estado:" TextColor="#393939" FontSize="13" Margin="35,10,0,-10"/>
-                    <Picker Title="Seleccione" x:Name="txtMarca" TextColor="#393939" TitleColor="#393939" Margin="30,0,30,0">
+                    <Label Text="Estado:" TextColor="#393939" FontSize="13" Margin="35,0,0,-10"/>
+                    <Picker Title="Estado Marca" x:Name="txtMarca" TextColor="Black" TitleColor="Black" SelectedIndex="0" Margin="30,0,30,0">
                         <Picker.Items>
                             <x:String>1</x:String>
                             <x:String>0</x:String>
                         </Picker.Items>
                     </Picker>
 
-                    <Label Text="1 - Disponible" Margin="35,0,0,0"/>
-                    <Label Text="0 - Ocupado" Margin="35,0,0,0"/>
+                    <Label Text="1 - Disponible" Margin="35,0,00,0"/>
+                    <Label Text="0 - Ocupado" Margin="35,0,00,0"/>
 
-                    <Button x:Name="btnRegistrar" 
-                            Text="Registrar" 
-                            Clicked="btnRegistrar_Clicked"
+                    <Button x:Name="btnActualizar" 
+                            Text="Actualizar" 
+                            Clicked="btnActualizar_Clicked"
                             BackgroundColor="#FF846E" 
                             FontAttributes="Bold" 
                             CornerRadius="10"
@@ -44,6 +45,8 @@
                             Margin="30,0,30,0"/>
                 </StackLayout>
             </Frame>
+
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -16,6 +16,6 @@ namespace AutoRentingHCA
         public string COLORAUTO { get; set; }
         public string foto { get; set; }
         public int ESTADOAUTO { get; set; }
-        public DateTime FECHAREGISTROAUTO { get; set; }
+
     }
 }

@@ -16,9 +16,11 @@ namespace AutoRentingHCA
 
         ObservableCollection<FileImageSource> fileImages =
             new ObservableCollection<FileImageSource>();
-        public Home()
+        public Home(string usuario)
         {
             InitializeComponent();
+
+            lblWellcome.Text= "Bienvenido " + usuario;
 
             List<Image> images = new List<Image>()
             {

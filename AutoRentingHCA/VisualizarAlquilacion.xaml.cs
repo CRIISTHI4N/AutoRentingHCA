@@ -19,8 +19,8 @@ namespace AutoRentingHCA
     {
         //192.168.70.180
         //192.168.1.11
-        private const string Url = "http://192.168.70.180/proyecto/renta.php";
-        private const string UrlUp = "http://192.168.70.180/proyecto/renta.php?IDAUTOS={0}&ESTADOAUTO={1}";
+        private const string Url = "http://192.168.1.11/proyecto/renta.php";
+        private const string UrlUp = "http://192.168.1.11/proyecto/renta.php?IDAUTOS={0}&ESTADOAUTO={1}";
 
         public VisualizarAlquilacion(int IDAUTOS, int IDMARCAS, string NOMBREAUTO, string TIPOAUTO, string MODELOAUTO, string PLACAAUTO, double PRECIOAUTO, string COLORAUTO, string foto, int ESTADOAUTO, string cedula)
         {
@@ -47,7 +47,10 @@ namespace AutoRentingHCA
 
         private async void btnAlquilarAuto_Clicked(object sender, EventArgs e)
         {
-            
+
+            DateTime fechaSistema = DateTime.Now;
+            string fFormat = fechaSistema.ToString("yyyy/MM/dd");
+
             if (!String.IsNullOrEmpty(etDias.Text))
             {
                     if (!String.IsNullOrEmpty(etDireccion.Text))
@@ -83,8 +86,8 @@ namespace AutoRentingHCA
                                     parameters.Add("IDAUTOS", lblID.Text);
                                     parameters.Add("CEDULA", cedu.Text);
                                     parameters.Add("telefono", etTelf.Text);
-                                    parameters.Add("FECHAREGISTRORENTA", etFecha.Date.ToShortDateString());
-                                    parameters.Add("FECHARESERVARENTA", etFecha.Date.ToShortDateString()); // fecha del sistema
+                                    parameters.Add("FECHAREGISTRORENTA", fFormat); // fecha del sistema
+                                    parameters.Add("FECHARESERVARENTA", etFecha.Date.ToString("yyyy/MM/dd")); 
                                     parameters.Add("DIASRENTA", etDias.Text);
                                     parameters.Add("DIRECCIONRENTA", etDireccion.Text);
                                     parameters.Add("TOTALRENTA", lblTotalPagar.Text);
@@ -101,12 +104,13 @@ namespace AutoRentingHCA
                                         "Por favor, Espere a que uno de nuestros ascesores se comunique con usted. \n"
                                         + "\n"
                                         + "Días: " + etDias.Text + "\n"
-                                        + "Fecha de entrega: " + etFecha.Date.ToShortDateString() + "\n"
+                                        + "Fecha de entrega: " + etFecha.Date.ToString("yyyy/MM/dd") + "\n"
                                         + "Dirección: " + etDireccion.Text + "\n"
                                         + "Teléfono: " + etTelf.Text + "\n"
                                         + "\n"
                                         + "Total a pagar: $" + lblTotalPagar.Text,
                                         "Gracias");
+
                                     await Navigation.PushAsync(new AlquilarCarro(cedu.Text));
 
                                 }

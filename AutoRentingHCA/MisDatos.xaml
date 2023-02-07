@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AutoRentingHCA.MisDatos">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <StackLayout.Background RowDefinitions="Auto">
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#1e1e26" Offset="0" />
+                    <GradientStop Color="#2C2C3E" Offset="1" />
+                </LinearGradientBrush>
+            </StackLayout.Background>
+
+            <Image x:Name="imgAuto" Source="logo.jpeg" />
+
+            <ScrollView Margin="0,-15,0,0" VerticalOptions="FillAndExpand">
+                <Frame CornerRadius="10">
+                    <Grid>
+                        <StackLayout Grid.Column="0" Grid.Row="0">
+                            <Label Margin="30,20,30,0" Text="Cédula:" Grid.Row="0" Grid.Column="0" TextColor="#393939" FontSize="13"/>
+                            <Entry Text="" x:Name="entCedula" Margin="30,0,30,0" IsReadOnly="True"/>
+                            <Label Margin="30,0,30,0" Text="Nombre:" Grid.Row="0" Grid.Column="0" TextColor="#393939" FontSize="13"/>
+                            <Entry Text="" x:Name="entNombre" Margin="30,0,30,0" IsReadOnly="True"/>
+                            <Label Margin="30,0,30,0" Text="Apellido:" Grid.Row="0" Grid.Column="0" TextColor="#393939" FontSize="13"/>
+                            <Entry Text="" x:Name="entApellido" Margin="30,0,30,0" IsReadOnly="True"/>
+                            <Label Margin="30,0,30,0" Text="Email:" Grid.Row="0" Grid.Column="0" TextColor="#393939" FontSize="13"/>
+                            <Entry Text="" x:Name="entEmail" Margin="30,0,30,0" IsReadOnly="True"/>
+                            <Label Margin="30,0,30,0" Text="Teléfono:" Grid.Row="0" Grid.Column="0" TextColor="#393939" FontSize="13"/>
+                            <Entry Text="" x:Name="entTelf" Margin="30,0,30,0" IsReadOnly="True"/>
+                            <Label Margin="30,0,30,0" Text="Usuario:" Grid.Row="0" Grid.Column="0" TextColor="#393939" FontSize="13"/>
+                            <Entry Text="" x:Name="entUsuario" Margin="30,0,30,0" IsReadOnly="True"/>
+                            <Label Margin="30,0,30,0" Text="Clave:" Grid.Row="0" Grid.Column="0" TextColor="#393939" FontSize="13"/>
+                            <Entry Text="" x:Name="entClave" Margin="30,0,30,0" IsReadOnly="True"/>
+                            <Label Margin="30,0,30,0" Text="Tipo de Licencia:" Grid.Row="0" Grid.Column="0" TextColor="#393939" FontSize="13"/>
+                            <Entry Text="" x:Name="entTipoLicencia" Margin="30,0,30,0" IsReadOnly="True"/>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+            </ScrollView>
+
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -17,7 +17,7 @@ namespace AutoRentingHCA
     {
         //192.168.70.180
         // 192.168.1.11
-        private const string Url = "http://192.168.70.180/proyecto/autos.php";
+        private const string Url = "http://192.168.1.11/proyecto/autos.php";
 
         private readonly HttpClient client = new HttpClient();
         private ObservableCollection<Autos> _post;
@@ -25,7 +25,6 @@ namespace AutoRentingHCA
         public int IDMARCAS, ESTADOAUTO;
         public string NOMBREAUTO, TIPOAUTO, MODELOAUTO, PLACAAUTO, COLORAUTO, foto;
         public double PRECIOAUTO;
-        public DateTime FECHAREGISTROAUTO;
 
         private void lstAutos_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
@@ -40,7 +39,6 @@ namespace AutoRentingHCA
             COLORAUTO = obj.COLORAUTO;
             foto = obj.foto;
             ESTADOAUTO = obj.ESTADOAUTO;
-            FECHAREGISTROAUTO = obj.FECHAREGISTROAUTO;
         }
 
         private async void btnAlquilar_Clicked(object sender, EventArgs e)

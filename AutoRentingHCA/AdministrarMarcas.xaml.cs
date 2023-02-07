@@ -16,14 +16,13 @@ namespace AutoRentingHCA
     public partial class AdministrarMarcas : ContentPage
     {
 
-        private const string Url = "http://192.168.70.180/proyecto/marcas.php";
+        private const string Url = "http://192.168.1.11/proyecto/marcas.php";
         private readonly HttpClient client = new HttpClient();
         private ObservableCollection<Marcas> _post;
 
         public int IDMARCAS = -1;
-        public int ESTADOMARCA = -1;
+        public int ESTADOMARCA;
         public string NOMBREMARCA;
-        public DateTime FECHAREGISTROMAR;
 
         public AdministrarMarcas()
         {
@@ -55,7 +54,6 @@ namespace AutoRentingHCA
             IDMARCAS = obj.IDMARCAS;
             NOMBREMARCA = obj.NOMBREMARCA;
             ESTADOMARCA = obj.ESTADOMARCA;
-            FECHAREGISTROMAR = obj.FECHAREGISTROMAR;
         }
 
         private async void btnIngresar_Clicked(object sender, EventArgs e)
@@ -63,14 +61,61 @@ namespace AutoRentingHCA
             await Navigation.PushAsync(new IngresarMarca());
         }
 
-        private void btnActualizar_Clicked(object sender, EventArgs e)
+        private async void btnActualizar_Clicked(object sender, EventArgs e)
         {
-
+            if (IDMARCAS > 0)
+            {
+                await Navigation.PushAsync(new ActualizarMarca(IDMARCAS, NOMBREMARCA, ESTADOMARCA));
+            }
+            else
+            {
+                await DisplayAlert("Alerta", "No se ha seleccionado un registro", "OK");
+            }
         }
 
-        private void btnEliminar_Clicked(object sender, EventArgs e)
+        private async void btnEliminar_Clicked(object sender, EventArgs e)
         {
+            if (IDMARCAS > 0)
+            {
+                string Uri = "http://192.168.1.11/proyecto/marcas.php?IDMARCAS={0}";
 
+                try
+                {
+                    var action = await DisplayActionSheet("¿Estas seguro de eliminar este registro?", null, "Sí", "No");
+
+                    if (action == "Sí")
+                    {
+
+                        HttpClient client = new HttpClient();
+                        var uri = new Uri(string.Format(Uri, IDMARCAS.ToString()));
+                        var result = await client.DeleteAsync(uri);
+                        if (result.IsSuccessStatusCode)
+                        {
+                            Get();
+                            await DisplayAlert("Eliminado", 
+                                "Registro eliminado \n \n" 
+                                + "NOTA: Si el registro esta siendo utilizado en otra tabla AUTO se eliminará", 
+                                "OK");
+                        }
+                        else
+                        {
+                            await DisplayAlert("Error", "Error consulte con el administrador", "OK");
+                        }
+                    }
+                    else if (action == "No")
+                    {
+                        return;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    await DisplayAlert("Alerta", "Ocurrio un Error", "OK");
+                }
+            }
+            else
+            {
+                await DisplayAlert("Alerta", "No se ha seleccionado un registro", "OK");
+            }
         }
     }
 }

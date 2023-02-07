@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AutoRentingHCA.AdministrarRentas">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout.Background RowDefinitions="Auto">
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#1e1e26" Offset="0" />
+                    <GradientStop Color="#2C2C3E" Offset="1" />
+                </LinearGradientBrush>
+            </StackLayout.Background>
+
+            <Label Text="Administrar Rentas" TextColor="#EAEAEA" FontAttributes="None" FontSize="25" HorizontalTextAlignment="Center" Padding="0,20,0,30"/>
+
+            <StackLayout HeightRequest="83" Margin="5,0,5,0">
+                <Grid>
+                    <Button Text="Buscar" 
+                            Grid.Row="0" 
+                            Grid.Column="1"
+                            BackgroundColor="Transparent" 
+                            BorderWidth="1" 
+                            FontAttributes="None" 
+                            CornerRadius="10" 
+                            BorderColor="#FF846E"
+                            TextColor="White"
+                            x:Name="btnBuscar"
+                            Clicked="btnBuscar_Clicked"
+                            FontSize="13"
+                            Padding="5,0,5,0"
+                            Margin="-50,0,150,0"/>
+
+                    <Entry Grid.Row="0" 
+                           Grid.Column="0"
+                           x:Name="txtCedula"
+                           TextColor="#EAEAEA"
+                           PlaceholderColor="#EAEAEA"
+                           Placeholder="Ingrese cédula"
+                           Keyboard="Telephone"
+                           Margin="2,0,50,0"/>
+                </Grid>
+            </StackLayout>
+
+            <StackLayout HeightRequest="70">
+                <Grid BackgroundColor="#393939" Padding="0,10,0,10" Margin="2">
+                    <Label Text="ID" TextColor="#F1F1F1" FontAttributes="None" Grid.Column="0" Grid.Row="0" HorizontalTextAlignment="Center" FontSize="10"/>
+                    <Label Text="ID Auto" TextColor="#F1F1F1" FontAttributes="None" Grid.Column="1" Grid.Row="0" HorizontalTextAlignment="Center" FontSize="10"/>
+                    <Label Text="Cedula" TextColor="#F1F1F1" FontAttributes="None" Grid.Column="2" Grid.Row="0"  HorizontalTextAlignment="Center" FontSize="10"/>
+                    <Label Text="Teléfono" TextColor="#F1F1F1" FontAttributes="None" Grid.Column="3" Grid.Row="0" HorizontalTextAlignment="Center" FontSize="10"/>
+                    <Label Text="Fech. Reg" TextColor="#F1F1F1" FontAttributes="None" Grid.Column="4" Grid.Row="0" HorizontalTextAlignment="Center" FontSize="10"/>
+                    <Label Text="Fech. Res" TextColor="#F1F1F1" FontAttributes="None" Grid.Column="5" Grid.Row="0"  HorizontalTextAlignment="Center" FontSize="10"/>
+                    <Label Text="Días" TextColor="#F1F1F1" FontAttributes="None" Grid.Column="6" Grid.Row="0" HorizontalTextAlignment="Center" FontSize="10"/>
+                    <Label Text="Dirección" TextColor="#F1F1F1" FontAttributes="None" Grid.Column="7" Grid.Row="0" HorizontalTextAlignment="Center" FontSize="10"/>
+                    <Label Text="Total" TextColor="#F1F1F1" FontAttributes="None" Grid.Column="8" Grid.Row="0" HorizontalTextAlignment="Center" FontSize="10"/>
+                </Grid>
+            </StackLayout>
+
+            <ListView x:Name="lstRentas" SelectionMode="Single" ItemSelected="lstRentas_ItemSelected" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Grid BackgroundColor="#6B6B6B" Margin="2" Padding="0,10,0,10">
+
+                                    <Label Text="{Binding IDRENTA}" Grid.Column="0" 
+                                           FontAttributes="None" FontSize="10" TextColor="White" HorizontalTextAlignment="Center"/>
+                                    <Label Text="{Binding IDAUTOS}" Grid.Column="1"  
+                                           FontAttributes="None" FontSize="10" TextColor="White" HorizontalOptions="CenterAndExpand"/>
+                                    <Label Text="{Binding CEDULA}" Grid.Column="2" 
+                                           FontAttributes="None" FontSize="10" TextColor="White" HorizontalOptions="CenterAndExpand"/>
+                                    <Label Text="{Binding telefono}" Grid.Column="3" 
+                                           FontAttributes="None" FontSize="10" TextColor="White" HorizontalOptions="CenterAndExpand"/>
+                                    <Label Text="{Binding FECHAREGISTRORENTA}" Grid.Column="4" 
+                                           FontAttributes="None" FontSize="10" TextColor="White" HorizontalOptions="CenterAndExpand"/>
+                                    <Label Text="{Binding FECHARESERVARENTA}" Grid.Column="5" 
+                                           FontAttributes="None" FontSize="10" TextColor="White" HorizontalOptions="CenterAndExpand"/>
+                                    <Label Text="{Binding DIASRENTA}" Grid.Column="6" 
+                                           FontAttributes="None" FontSize="10" TextColor="White" HorizontalOptions="CenterAndExpand"/>
+                                    <Label Text="{Binding DIRECCIONRENTA}" Grid.Column="7" 
+                                           FontAttributes="None" FontSize="10" TextColor="White" HorizontalOptions="CenterAndExpand"/>
+                                    <Label Text="{Binding TOTALRENTA, StringFormat='$ {0}'}" Grid.Column="8" 
+                                           FontAttributes="None" FontSize="10" TextColor="White" HorizontalOptions="CenterAndExpand"/>
+                                </Grid>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

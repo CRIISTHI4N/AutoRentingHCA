@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AutoRentingHCA.IngresarAuto">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <StackLayout.Background RowDefinitions="Auto">
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#1e1e26" Offset="0" />
+                    <GradientStop Color="#2C2C3E" Offset="1" />
+                </LinearGradientBrush>
+            </StackLayout.Background>
+
+            <Image x:Name="imgAuto" Source="logo.jpeg" />
+
+            <ScrollView Margin="0,-17,0,0" VerticalOptions="FillAndExpand">
+                <Frame CornerRadius="10">
+                    <StackLayout>
+                        <Label Text="Ingresar" HorizontalTextAlignment="Center" FontSize="25" TextColor="#393939"/>
+                        
+                        <Label Text="Marca Auto:" TextColor="#393939" FontSize="13" Margin="35,10,0,-10"/>
+                        <Entry x:Name="txtIdAuto" Placeholder="Id" IsVisible="False"/>
+
+                        <Picker Title="Seleccione" x:Name="txtIdMarca" TextColor="#393939" TitleColor="#393939" Margin="30,0,30,0" />
+                        <Label x:Name="txtIdMarcaVeri" Text="" TextColor="#393939" FontSize="13" Margin="0" IsVisible="False"/>
+
+                        <Label Text="Nombre:" TextColor="#393939" FontSize="13" Margin="35,20,0,-10" IsVisible="False"/>
+                        <Entry x:Name="txtNombreAuto" Margin="30,0,30,0" IsVisible="False"/>
+
+                        <Label Text="Tipo:" TextColor="#393939" FontSize="13" Margin="35,10,0,-10"/>
+                        <Entry x:Name="txtTipo" Margin="30,0,30,0"/>
+
+                        <Label Text="Modelo:" TextColor="#393939" FontSize="13" Margin="35,10,0,-10"/>
+                        <Entry x:Name="txtModelo" Margin="30,0,30,0"/>
+
+                        <Label Text="Placa:" TextColor="#393939" FontSize="13" Margin="35,10,0,-10"/>
+                        <Entry x:Name="txtPlaca" Margin="30,0,30,0"/>
+
+                        <Label Text="Precio:" TextColor="#393939" FontSize="13" Margin="35,10,0,-10"/>
+                        <Entry x:Name="txtPrecio" Margin="30,0,30,0" Keyboard="Telephone"/>
+
+                        <Label Text="Color:" TextColor="#393939" FontSize="13" Margin="35,10,0,-10"/>
+                        <Entry x:Name="txtColor" Margin="30,0,30,0"/>
+
+                        <Label Text="Foto:" TextColor="#393939" FontSize="13" Margin="35,10,0,-10"/>
+                        <Entry x:Name="txtFoto" Margin="30,0,30,0"/>
+
+                        <Label Text="Estado:" TextColor="#393939" FontSize="13" Margin="35,10,0,-10"/>
+                        <Picker Title="Seleccione" x:Name="txtMarca" TextColor="#393939" TitleColor="#393939" Margin="30,0,30,0">
+                            <Picker.Items>
+                                <x:String>1</x:String>
+                                <x:String>0</x:String>
+                            </Picker.Items>
+                        </Picker>
+
+                        <Label Text="1 - Disponible" Margin="35,0,0,0"/>
+                        <Label Text="0 - Ocupado" Margin="35,0,0,0"/>
+                        
+                        <Button x:Name="btnRegistrar" 
+                            Text="Registrar" 
+                            Clicked="btnRegistrar_Clicked"
+                            BackgroundColor="#FF846E" 
+                            FontAttributes="Bold" 
+                            CornerRadius="10"
+                            VerticalOptions="EndAndExpand"
+                            Margin="30,30,30,0"/>
+                    </StackLayout>
+                </Frame>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

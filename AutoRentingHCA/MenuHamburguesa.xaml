@@ -30,28 +30,45 @@
                     <Label x:Name="lblUser" Text="" Grid.Row="0" Grid.Column="0" TextColor="White" Margin="110,0,0,0" VerticalOptions="CenterAndExpand" FontSize="25"/>
                     <Label x:Name="lblTipoUser" Text="" Grid.Row="0" Grid.Column="0" TextColor="White" IsVisible="False"/>
                     <Label x:Name="lblCedula" Text="" Grid.Row="0" Grid.Column="0" TextColor="White" IsVisible="False"/>
+
+                    <Label x:Name="entNombre" Text="" Grid.Row="0" Grid.Column="0" TextColor="White" IsVisible="False"/>
+                    <Label x:Name="entApellido" Text="" Grid.Row="0" Grid.Column="0" TextColor="White" IsVisible="False"/>
+                    <Label x:Name="entEmail" Text="" Grid.Row="0" Grid.Column="0" TextColor="White" IsVisible="False"/>
+                    <Label x:Name="entTelf" Text="" Grid.Row="0" Grid.Column="0" TextColor="White" IsVisible="False"/>
+                    <Label x:Name="entClave" Text="" Grid.Row="0" Grid.Column="0" TextColor="White" IsVisible="False"/>
+                    <Label x:Name="entTipoLicencia" Text="" Grid.Row="0" Grid.Column="0" TextColor="White" IsVisible="False"/>
                 </Grid>
             </Frame>
 
             <StackLayout BackgroundColor="Transparent" x:Name="userInterface">
-                <Button x:Name="btnInicio" Text="Inicio" Clicked="Button_Clicked" Padding="25" Margin="20,10,20,0" BackgroundColor="#d6d8d7" CornerRadius="50"/>
-                <Button x:Name="btnAlquilar" Text="Alquilar Vehículo" Clicked="Button_Clicked_1" Margin="20,10,20,0" Padding="25" BackgroundColor="#d6d8d7" CornerRadius="50"/>
-                <Button x:Name="btnContratarChofer" Text="Contratar Chofer" Padding="25" Margin="20,10,20,0" BackgroundColor="#d6d8d7" Clicked="btnContratarChofer_Clicked" CornerRadius="50"/>
+                <Button x:Name="btnInicio" Text="Inicio" Clicked="Button_Clicked" Padding="20" Margin="10,10,10,0" BackgroundColor="#d6d8d7" CornerRadius="50"/>
+                <Button x:Name="btnAlquilar" Text="Alquilar Vehículo" Clicked="Button_Clicked_1" Margin="10,10,10,0" Padding="20" BackgroundColor="#d6d8d7" CornerRadius="50"/>
+                <Button x:Name="btnContratarChofer" Text="Contratar Chofer" Padding="20" Margin="10,10,10,0" BackgroundColor="#d6d8d7" Clicked="btnContratarChofer_Clicked" CornerRadius="50"/>
+                
             </StackLayout>
 
 
             <StackLayout BackgroundColor="Transparent" x:Name="adminInterface">
-                <Button x:Name="btnAdministrarMarcas" Clicked="btnAdministrarMarcas_Clicked" Text="Administrar Marcas" Padding="25" Margin="20,10,20,0" CornerRadius="50" BackgroundColor="#d6d8d7"/>
-                <Button x:Name="btnAdministrarAutos" Clicked="btnAdministrarAutos_Clicked" Text="Administrar Auto" Padding="25" Margin="20,10,20,0" CornerRadius="50" BackgroundColor="#d6d8d7"/>
+                <Button x:Name="btnAdministrarMarcas" Clicked="btnAdministrarMarcas_Clicked" Text="Administrar Marcas" Padding="20" Margin="10,10,10,0" CornerRadius="50" BackgroundColor="#d6d8d7"/>
+                <Button x:Name="btnAdministrarAutos" Clicked="btnAdministrarAutos_Clicked" Text="Administrar Auto" Padding="20" Margin="10,10,10,0" CornerRadius="50" BackgroundColor="#d6d8d7"/>
+                <Button x:Name="btnAdministrarRentas" Clicked="btnAdministrarRentas_Clicked" Text="Administrar Rentas" Padding="20" Margin="10,10,10,0" CornerRadius="50" BackgroundColor="#d6d8d7"/>
             </StackLayout>
+
+            <Button x:Name="btnMisDatos" 
+                    Text="Mis Datos" 
+                    Clicked="btnMisDatos_Clicked" 
+                    Padding="0" 
+                    Margin="10,10,10,0" 
+                    BackgroundColor="#96BCFF" 
+                    VerticalOptions="EndAndExpand"
+                    CornerRadius="50"/>
 
             <Button  Text="Cerrar Sesión" 
                      Grid.Row="2" 
                      Clicked="Button_Clicked_2" 
-                     Padding="25" 
+                     Padding="0" 
                      BackgroundColor="#FFA696"
-                     Margin="20,10,20,10"
-                     VerticalOptions="EndAndExpand"
+                     Margin="10,10,10,10"
                      CornerRadius="50"/>
         </StackLayout>
     </ContentPage.Content>
