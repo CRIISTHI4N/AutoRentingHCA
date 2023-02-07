@@ -19,6 +19,7 @@ namespace AutoRentingHCA
         private const string Url = "http://192.168.1.11/proyecto/marcas.php";
         private readonly HttpClient client = new HttpClient();
         public IngresarMarca()
+
         {
             InitializeComponent();
             txtMarca.SelectedIndex= 0;
